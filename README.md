@@ -18,8 +18,8 @@ Lograr crear una base/idea ya desarrollada de un proyecto como lo es un hub de e
 ### Usuario de discord: ageus94
 
 ### Capturas
-!(capturas/dash menu open small.JPG)
-!(capturas/detalle small.JPG)
+!(/capturas/dash menu open small.JPG)
+!(/capturas/detalle small.JPG)
 
 
 ### Instrucciones de uso
