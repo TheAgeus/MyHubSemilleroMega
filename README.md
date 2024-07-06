@@ -18,8 +18,9 @@ Lograr crear una base/idea ya desarrollada de un proyecto como lo es un hub de e
 ### Usuario de discord: ageus94
 
 ### Capturas
-!(/capturas/dash menu open small.JPG)
-!(/capturas/detalle small.JPG)
+
+(![/capturas/dash menu open small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/dash%20menu%20open%20small.JPG))
+!(![/capturas/detalle small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/detalle%20small.JPG))
 
 
 ### Instrucciones de uso
