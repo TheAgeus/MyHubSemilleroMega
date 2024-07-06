@@ -25,6 +25,7 @@ Lograr crear una base/idea ya desarrollada de un proyecto como lo es un hub de e
 
 ### Instrucciones de uso
 - Clonar el proyecto
+- Cambiar de rama a sprintOne
 - Dar doble click en el index.html
 
 
