@@ -4,6 +4,7 @@
 ### Descripción
 
 Este es un hub de entretenimiento construido con las tres herramientas básicas de la internet: HTML, CSS Y JS. 
+
 Este repositorio contiene tanto el código como la documentación de este proyecto.
 
 
@@ -18,8 +19,8 @@ Lograr crear una base/idea ya desarrollada de un proyecto como lo es un hub de e
 
 ### Capturas
 
-[/capturas/dash menu open small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/dash%20menu%20open%20small.JPG)
-[/capturas/detalle small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/detalle%20small.JPG)
+![/capturas/dash menu open small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/dash%20menu%20open%20small.JPG)
+![/capturas/detalle small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/detalle%20small.JPG)
 
 
 ### Instrucciones de uso
