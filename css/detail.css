@@ -1,0 +1,47 @@
+#mainContent {
+  padding-top: 6rem;
+}
+.coverItemDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.movieWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.textPartDetail {
+  margin: 1rem;
+}
+.textPartDetail .titleDetail {
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+.largeDescription {
+  line-height: 1.5rem;
+}
+
+.imgDetail {
+  max-width: 300px;
+}
+img {
+  width: 100%;
+}
+
+.coverItemDetail .textPartDetail .controls {
+  display: flex;
+  gap: 0.5rem;
+}
+.coverItemDetail .textPartDetail .controls .btn {
+  border: 1px solid white;
+  padding-inline: 0.5rem;
+  font-size: 0.9rem;
+}
+.coverItemDetail .textPartDetail .controls .btn:hover {
+  cursor: pointer;
+  background-color: blue;
+}

@@ -1,0 +1,72 @@
+.dashboardWrapper {
+  height: 100vh;
+}
+.dashboard {
+}
+.contentWrapper {
+  padding-top: 3rem;
+}
+.contentWrapper h2 {
+  text-align: center;
+  padding-block: 3rem;
+}
+.coverItemsWrapper {
+  display: grid;
+  justify-content: center;
+}
+.coverItem {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  min-width: 150px;
+  max-width: 560px;
+}
+.coverItem .img {
+  flex: 1 ;
+  max-width: 350px;
+  min-width: 150px;
+}
+.coverItem .img img {
+  width: 100%;
+}
+.coverItem .textPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.coverItem .textPart .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+.coverItem .textPart .desc {
+  line-height: 1rem;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+}
+.coverItem .textPart .controls {
+  display: flex;
+  gap: 0.5rem;
+}
+.coverItem .textPart .controls .btn {
+  border: 1px solid white;
+  padding-inline: 0.5rem;
+  font-size: 0.9rem;
+}
+.coverItem .textPart .controls .btn:hover {
+  cursor: pointer;
+  background-color: blue;
+}
+
+
+@media (width > 750px) {
+  .coverItemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .coverItem {
+    height: fit-content;
+    max-width: 350px;
+  }
+}

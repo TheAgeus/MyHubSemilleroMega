@@ -1,0 +1,71 @@
+<!-- This will be the login page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <title>My Hubby - Dashboard</title>
+</head>
+<body>
+  
+  <script src="../js/data.js"></script>
+
+  <div class="dashboardWrapper">
+    <div class="nav">
+      <div class="logo">
+        <h3>MYHUB</h3>
+      </div>
+      <div class="burgerIcon" id="burgerIcon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="menuWrapper" id="navMenu">
+        <div class="menu">
+          <div class="closeMenuBtn" id="closeMenuBtn">
+            Cerrar
+          </div>
+          <ul>
+            <li class="menuTitle">Peliculas:</li>
+            <li class="menuItem menuClicable" data-category="actionMovies">Acción</li>
+            <li class="menuItem menuClicable" data-category="comedyMovies">Comedia</li>
+            <li class="menuItem menuClicable" data-category="dramaMovies">Drama</li>
+            <li class="menuTitle">Series:</li>
+            <li class="menuItem menuClicable" data-category="fantasySeries">Fantasía</li>
+            <li class="menuItem menuClicable" data-category="actionSeries">Acción</li>
+            <li class="menuTitle menuClicable" data-category="watchingNow">Viendo</li>
+            <li class="menuTitle menuClicable" data-category="favorites">Mis favoritos</li>
+            <li class="menuTitle menuClicable" data-category="recomendations">Mis recomendados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard" id="mainContent">
+      <div class="coverItemsWrapper" >
+        <div class="coverItem">
+          <div class="img">
+            <img src="../img/lotr.jpg" alt="Cover The Lord of The Rings">
+          </div>
+          <div class="textPart">
+            <div class="title">Soy un título</div>
+            <div class="desc">Soy una breve descripcion Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi voluptas dicta repellendus unde cupiditate eaque fugit</div>
+            <div class="controls">
+              <div class="btn">Ver</div>
+              <div class="btn">Detalle</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
