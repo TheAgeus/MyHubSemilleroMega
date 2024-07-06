@@ -4,7 +4,6 @@
 ### Descripción
 
 Este es un hub de entretenimiento construido con las tres herramientas básicas de la internet: HTML, CSS Y JS. 
-
 Este repositorio contiene tanto el código como la documentación de este proyecto.
 
 
@@ -13,14 +12,14 @@ Este repositorio contiene tanto el código como la documentación de este proyec
 Lograr crear una base/idea ya desarrollada de un proyecto como lo es un hub de entretenimiento, con las herramientas más básicas ya mencionadas. En el transcurso del desarrollo ir viendo problemáticas, y dar contraste con el desarrollo con un framework (que será la siguiente práctica) a cuando no estás utilizando uno.
 
 
-### Nombre del proyecto - MYHUB
-### Nombre del desarrollador: Agustín Aguilar Eusebio
-### Usuario de discord: ageus94
+* Nombre del proyecto - MYHUB
+* Nombre del desarrollador: Agustín Aguilar Eusebio
+* Usuario de discord: ageus94
 
 ### Capturas
 
-(![/capturas/dash menu open small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/dash%20menu%20open%20small.JPG))
-!(![/capturas/detalle small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/detalle%20small.JPG))
+[/capturas/dash menu open small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/dash%20menu%20open%20small.JPG)
+[/capturas/detalle small.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintOne/capturas/detalle%20small.JPG)
 
 
 ### Instrucciones de uso
