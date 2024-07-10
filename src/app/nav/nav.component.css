@@ -52,10 +52,13 @@ li {
   padding-block: 0.5rem;
 }
 .menuTitle {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
 }
 .menuItem {
   padding-left: 0.5rem;
+}
+.menuClicable {
+  text-decoration: underline;
 }
 .menuClicable:hover {
   cursor: pointer;
