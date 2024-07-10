@@ -1,0 +1,62 @@
+.fullWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+.loginWrapper {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid rgb(46, 46, 46);
+    border-radius: 10px;
+    width: 70%;
+}
+.loginWrapper h2 {
+    text-align: center;
+  }
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.inputField {
+    display: flex;
+    gap: 0.3rem;
+    flex-direction: column;
+}
+.inputField label {
+    flex: 1;
+}
+.inputField input {
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 1.1rem;
+    background-color: rgb(51, 51, 51);
+}
+.inputField input:focus {
+    outline: none;
+    background-color: rgb(81, 80, 80);
+}
+.inputField button {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    padding-block: 0.3rem;
+    background-color: rgb(2, 112, 30);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+}
+.inputField button:hover {
+    cursor: pointer;
+}
+
+@media (width > 700px) {
+    .loginWrapper {
+        width: fit-content;
+    }
+}
