@@ -8,4 +8,9 @@
     color-scheme: dark;
 }
 
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 ::-webkit-scrollbar { display: none; }

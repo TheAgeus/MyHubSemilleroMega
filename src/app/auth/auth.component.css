@@ -42,7 +42,8 @@
     outline: none;
     background-color: rgb(81, 80, 80);
 }
-.inputField button {
+.inputField a {
+    text-align: center;
     font-size: 1.1rem;
     margin-top: 0.5rem;
     padding-block: 0.3rem;

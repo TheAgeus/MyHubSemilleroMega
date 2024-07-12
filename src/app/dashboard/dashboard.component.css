@@ -4,6 +4,17 @@
     justify-content: center;
     padding-top: 5rem;
 }
+.initialMessage {
+    padding-inline: 1rem;
+}
+.initialMessage h2 {
+    padding-block: 2rem;
+}
+.initialMessage li {
+    padding-block: 1rem;
+    font-size: 1.3rem;
+}
+
 
 @media (width > 700px) {
 

@@ -27,12 +27,21 @@
   right: 0;
   top: 0;
   padding: 1rem;
-  background-color: rgb(52, 52, 52);
+  background-color: rgb(7, 7, 7);
   display: none;
-  width: fit-content;
   text-align: center;
+  overflow-y: scroll;
+  height: 400px;
+  width: fit-content;
+  max-width: 80%;
+  border: 1px solid white;
 }
-
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
 .closeMenuBtn {
   text-align: center;
   font-size: 0.9rem;
@@ -47,15 +56,23 @@
 }
 ul {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  border: 1px solid white;
+  padding: 0.5rem;
 }
 li {
   padding-block: 0.5rem;
+  text-align: start;
 }
 .menuTitle {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .menuItem {
-  padding-left: 0.5rem;
+
 }
 .menuClicable {
   text-decoration: underline;
@@ -65,7 +82,7 @@ li {
   color: rgb(136, 189, 226);
 }
 
-
+/*
 @media (width > 900px) {
   .menuWrapper {
     position: static;
@@ -85,11 +102,11 @@ li {
     display: none;
   }
 }
-
+*/
 
 
 .show {
-  display: block;
+  display: flex;
 }
 .hidde {
   display: none;

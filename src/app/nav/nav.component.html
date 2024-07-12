@@ -1,28 +1,37 @@
 <div class="nav">
     <div class="logo">
-        <h3>MYHUB</h3>
+        <h3><a routerLink="/Dashboard">MYHUB</a></h3>
     </div>
-    <div class="burgerIcon" id="burgerIcon">
+    <div (click)="showMenu()" class="burgerIcon" id="burgerIcon">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
     </div>
-    <div class="menuWrapper" id="navMenu">
+    <div [ngClass]="{'show': isShowedMenu}" class="menuWrapper" id="navMenu">
         <div class="menu">
-            <div class="closeMenuBtn" id="closeMenuBtn">
+            <div (click)="hideMenu()" class="closeMenuBtn" id="closeMenuBtn">
                 Cerrar
             </div>
-        <ul>
-            <li class="menuTitle">Peliculas:</li>
-            <li class="menuItem menuClicable" data-category="actionMovies">Acción</li>
-            <li class="menuItem menuClicable" data-category="comedyMovies">Comedia</li>
-            <li class="menuItem menuClicable" data-category="dramaMovies">Drama</li>
-            <li class="menuTitle">Series:</li>
-            <li class="menuItem menuClicable" data-category="fantasySeries">Fantasía</li>
-            <li class="menuItem menuClicable" data-category="actionSeries">Acción</li>
-            <li class="menuItem menuClicable" data-category="watchingNow">Viendo</li>
-            <li class="menuItem menuClicable" data-category="favorites">Mis favoritos</li>
-            <li class="menuItem menuClicable" data-category="recomendations">Mis recomendados</li>
-        </ul>
+            <div class="links">
+                <ul>
+                    <li class="menuTitle">Peliculas:</li>
+                    <li *ngFor="let category of movieCategories" class="menuItem menuClicable">
+                        <a [routerLink]="['/Dashboard/Peliculas', category]">{{ category }}</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="menuTitle">Series:</li>
+                    <li *ngFor="let category of serieCategories" class="menuItem menuClicable">
+                       <a [routerLink]="['/Dashboard/Series', category]">{{ category }}</a> 
+                    </li>
+
+                </ul>
+                <ul>
+                    <li class="menuTitle">Other:</li>
+                    <li *ngFor="let other of otherMenuElements" class="menuItem menuClicable">
+                        <a [routerLink]="[other.route]"> {{ other.title }} </a>
+                    </li>
+                </ul>
+            </div>
     </div>
 </div>
