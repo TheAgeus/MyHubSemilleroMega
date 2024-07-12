@@ -1,0 +1,37 @@
+<div class="nav">
+    <div class="logo">
+        <h3><a routerLink="/Dashboard">MYHUB</a></h3>
+    </div>
+    <div (click)="showMenu()" class="burgerIcon" id="burgerIcon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div [ngClass]="{'show': isShowedMenu}" class="menuWrapper" id="navMenu">
+        <div class="menu">
+            <div (click)="hideMenu()" class="closeMenuBtn" id="closeMenuBtn">
+                Cerrar
+            </div>
+            <div class="links">
+                <ul>
+                    <li class="menuTitle">Peliculas:</li>
+                    <li *ngFor="let category of movieCategories" class="menuItem menuClicable">
+                        <a [routerLink]="['/Dashboard/Peliculas', category]">{{ category }}</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="menuTitle">Series:</li>
+                    <li *ngFor="let category of serieCategories" class="menuItem menuClicable">
+                       <a [routerLink]="['/Dashboard/Series', category]">{{ category }}</a> 
+                    </li>
+
+                </ul>
+                <ul>
+                    <li class="menuTitle">Other:</li>
+                    <li *ngFor="let other of otherMenuElements" class="menuItem menuClicable">
+                        <a [routerLink]="[other.route]"> {{ other.title }} </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="dashboardWrapper">
+
+    <div class="titulo">
+        <h2>{{ type }} / {{ category }}</h2>
+    </div>
+
+    <div class="dashboard" id="mainContent">
+        
+        <div class="coverItemsWrapper">
+            <div *ngFor="let movie of filteredMovies" class="coverItem">
+                <div class="img">
+                    <img src="{{ movie['img'] }}" alt="Cover {{ movie['title'] }}">
+                </div>
+                <div class="textPart">
+                    <div class="title">{{ movie['title'] }}</div>
+                    <div class="desc">{{ movie['shortDesc'] }}</div>
+                    <div class="controls">
+                        <a class="btn" [routerLink]="['/Dashboard/Peliculas',movie.category, movie.id]">Detalle</a>
+                        <a class="btn" [routerLink]="['/Dashboard/Peliculas',movie.category, movie.id, 'ver']">Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
