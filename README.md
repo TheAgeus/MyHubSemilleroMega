@@ -21,7 +21,7 @@ Code coverage es una herramienta que nos ayuda a saber cuánto de nuestro códig
 
 ### Capturas
 Esta es la leyenda que sale cuando se está cargando la info
-![/capturas/cap1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/cap1.PNG)
+![/capturas/cap1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/cap3.PNG)
 ![/capturas/cap2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/cap2.PNG)
 
 
