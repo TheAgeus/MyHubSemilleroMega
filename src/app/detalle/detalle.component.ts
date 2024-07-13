@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
 
-
 interface Movie {
   id: number;
   category: string;
@@ -20,11 +19,16 @@ interface Movie {
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
+
 export class DetalleComponent {
 
+  // For knowing what movie im gonna show, for filtering
   movieId: number = 0;
+
+  // The movie filtered
   movie: Movie = { id: 0, category: "", img: "", title: "", shortDesc: "", largeDesc: "" };
   
+  // All movies with a large desc
   movies: Movie[] = [
     { 
       id: 1,
@@ -71,8 +75,10 @@ export class DetalleComponent {
 
     }
   ];
+
   constructor(private route: ActivatedRoute) { }
 
+  // For filter on init
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.movieId = +params['id'];  // Ensure movieId is a number
@@ -80,6 +86,7 @@ export class DetalleComponent {
     });
   }
 
+  // filter movies to the one im gonna show
   filterMovie() {
     this.movie = this.movies.find(movie => movie.id === this.movieId) || { id: 0, category: "", img: "", title: "", shortDesc: "", largeDesc: "" };
   }

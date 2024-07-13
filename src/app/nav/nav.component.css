@@ -20,7 +20,7 @@
 .line {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--font-color);
 }
 .menuWrapper {
   position: absolute;
@@ -70,9 +70,6 @@ li {
 .menuTitle {
   font-size: 1.2rem;
   font-weight: bold;
-}
-.menuItem {
-
 }
 .menuClicable {
   text-decoration: underline;
