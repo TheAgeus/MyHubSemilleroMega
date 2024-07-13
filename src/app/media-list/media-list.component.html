@@ -17,6 +17,9 @@
                     <div class="controls">
                         <a class="btn" [routerLink]="['/Dashboard/Peliculas',movie.category, movie.id]">Detalle</a>
                         <a class="btn" [routerLink]="['/Dashboard/Peliculas',movie.category, movie.id, 'ver']">Ver</a>
+                        <a *ngIf="!movie.fav" (click)="addFav(movie)" class="btn">Agregar a favoritos</a>
+                        <a *ngIf="movie.fav" (click)="removeFav
+                        (movie)" class="btn">Eliminar de favoritos</a>
                     </div>
                 </div>
             </div>

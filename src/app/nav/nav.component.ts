@@ -14,6 +14,7 @@ interface Option {
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
+
 export class NavComponent {
   category: string = '';
   isShowedMenu: boolean = false;
@@ -24,14 +25,17 @@ export class NavComponent {
   serieCategories: string[] = [
   ]
   otherMenuElements: Option[] = [
+    { title:'Favoritos', route:'/Dashboard/Peliculas/Favoritos' },
+    { title:'Configuracion', route: '/Dashboard/Config' },
     { title:'Cerrar sesión', route:'/' }
   ]
   
-
+  // for showing my menu
   showMenu() {
     this.isShowedMenu = true;
   }
 
+  // for hidding my menu
   hideMenu() {
     this.isShowedMenu = false;
   }
