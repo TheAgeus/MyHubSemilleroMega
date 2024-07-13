@@ -154,7 +154,7 @@ export class MediaListComponent {
 
     of(localStorage.getItem('movies'))
       .pipe(
-        delay(1000), // Simulate a delay for loading
+        delay(3000), // Simulate a delay for loading
         finalize(() => this.loadingService.hide()) // Hide loading modal after data is loaded
       )
       .subscribe(storedMovies => {

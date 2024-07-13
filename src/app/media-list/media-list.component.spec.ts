@@ -143,5 +143,5 @@ describe('MediaListComponent', () => {
     // Assert that storedMoviesArray matches mockMovies
     expect(storedMoviesArray).toEqual(mockMovies);
   });
-  // Add more test cases as needed
+
 });
