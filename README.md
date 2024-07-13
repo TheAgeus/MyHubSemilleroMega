@@ -1,5 +1,9 @@
 # SPRINT 2 - HUB DE ENTRETENIMIENTO - MY HUB - MIGRACION A ANGULAR
 
+* Nombre del proyecto - MYHUB
+* Nombre del desarrollador: Agustín Aguilar Eusebio
+* Usuario de discord: ageus94
+
 
 ### Descripción
 
@@ -17,15 +21,12 @@ En el Sprint 2, "MYHUB" se transformará desde una configuración básica de HTM
 - Personalización de Configuración: Implementar una ruta de configuración donde los usuarios puedan personalizar el proyecto, incluyendo la opción de cambiar el color de la fuente globalmente.
 
 
-* Nombre del proyecto - MYHUB
-* Nombre del desarrollador: Agustín Aguilar Eusebio
-* Usuario de discord: ageus94
 
 ### Capturas
 
-![/capturas/cap1.JPG](/capturas/cap1.JPG)
-![/capturas/cap2.JPG](/capturas/cap1.JPG)
-![/capturas/cap3.JPG](/capturas/cap1.JPG)
+![/capturas/cap1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintTwo/capturas/cap1.PNG)
+![/capturas/cap2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintTwo/capturas/cap2.PNG)
+![/capturas/cap3.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintTwo/capturas/cap3.PNG)
 
 
 ### Instrucciones de uso
