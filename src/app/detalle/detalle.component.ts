@@ -72,7 +72,30 @@ export class DetalleComponent {
       title: "The Exorcist",
       shortDesc: "When a young girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her." ,
       largeDesc: " veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis "
-
+    },
+    {
+      id: 6,
+      category: "Fantasía",
+      img: 'https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/61/d0/b3/61d0b322-414b-a7ba-dfdc-4c4a0e4663ad/source/900x900bb.jpg',
+      title: "Harry Potter and the Sorcerer's Stone",
+      shortDesc: "An orphaned boy discovers he is a wizard on his 11th birthday and goes on to attend a magical school, uncovering the truth about his parents and his destiny.",
+      largeDesc: "HASKJH kja sdjk  akd qwu zmxnbcywbcs scdkh  kgjh bu nih mkj myu fuyfdfgyugb ftv rvsv uhjh gkjhg jhggyuu yguj muyguhjum muhmu hmuhbmuhb umhbumhb muhbmuh bmuhbmuhb myyttcch nuyhiuykjhnk jnukjkhnkgjkh gnkjhgkjhgf uygjkh jghgfhgfuyfuhy iuhbjhgvjhg uyhujnuynhiuyfyg njhbjbjuhbjhbmyumbuh sdfsuigfnsuydgfij sdifuhgnisjfdguysfd sdfiugiusygdnfus wuegnwueyfushdifnhwgfiuhsdf wuhfgsfbsfdiwuef wueyfgbsdufgbwyefbgsdf wufygbusyfgbuwyd"
+    },
+    {
+      id: 7,
+      category: "Terror",
+      img: 'https://th.bing.com/th/id/OIP.RbvsiuoskRaf_vnuiJ0nKQHaLH?rs=1&pid=ImgDetMain',
+      title: "Hereditary",
+      shortDesc: "After the death of their secretive grandmother, a family is haunted by tragic and disturbing occurrences, unraveling dark secrets about their ancestry.",
+      largeDesc: "HASKJH kja sdjk  akd qwu zmxnbcywbcs scdkh  kgjh bu nih mkj myu fuyfdfgyugb ftv rvsv uhjh gkjhg jhggyuu yguj muyguhjum muhmu hmuhbmuhb umhbumhb muhbmuh bmuhbmuhb myyttcch nuyhiuykjhnk jnukjkhnkgjkh gnkjhgkjhgf uygjkh jghgfhgfuyfuhy iuhbjhgvjhg uyhujnuynhiuyfyg njhbjbjuhbjhbmyumbuh sdfsuigfnsuydgfij sdifuhgnisjfdguysfd sdfiugiusygdnfus wuegnwueyfushdifnhwgfiuhsdf wuhfgsfbsfdiwuef wueyfgbsdufgbwyefbgsdf wufygbusyfgbuwyd"
+    },
+    {
+      id: 8,
+      category: "Terror",
+      img: 'https://image.tmdb.org/t/p/original/ArPWMf2leE6H9IIJ3tHVt6uewLR.jpg',
+      title: "The Babadook",
+      shortDesc: "A single mother and her child fall into a deep well of paranoia when an eerie children's book titled 'Mister Babadook' manifests in their home.",
+      largeDesc: "HASKJH kja sdjk  akd qwu zmxnbcywbcs scdkh  kgjh bu nih mkj myu fuyfdfgyugb ftv rvsv uhjh gkjhg jhggyuu yguj muyguhjum muhmu hmuhbmuhb umhbumhb muhbmuh bmuhbmuhb myyttcch nuyhiuykjhnk jnukjkhnkgjkh gnkjhgkjhgf uygjkh jghgfhgfuyfuhy iuhbjhgvjhg uyhujnuynhiuyfyg njhbjbjuhbjhbmyumbuh sdfsuigfnsuydgfij sdifuhgnisjfdguysfd sdfiugiusygdnfus wuegnwueyfushdifnhwgfiuhsdf wuhfgsfbsfdiwuef wueyfgbsdufgbwyefbgsdf wufygbusyfgbuwyd"
     }
   ];
 

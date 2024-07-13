@@ -16,14 +16,19 @@ interface Option {
 })
 
 export class NavComponent {
+
   category: string = '';
+
   isShowedMenu: boolean = false;
+
   movieCategories: string[] = [
     'Fantasía', 
     'Terror',
   ]
+
   serieCategories: string[] = [
   ]
+  
   otherMenuElements: Option[] = [
     { title:'Favoritos', route:'/Dashboard/Peliculas/Favoritos' },
     { title:'Configuracion', route: '/Dashboard/Config' },

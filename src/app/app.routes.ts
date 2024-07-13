@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+
 import { Routes } from '@angular/router';
 import { MediaListComponent } from './media-list/media-list.component';
 import { DetalleComponent } from './detalle/detalle.component';
@@ -8,7 +8,7 @@ import { SettingsComponent } from './settings/settings.component';
 export const routes: Routes = [
     {
         path: 'Dashboard',
-        loadComponent: () => import('./Dashboard/dashboard.component').then(c => c.DashboardComponent),
+        loadComponent: () => import('./dashboard/dashboard.component').then(c => c.DashboardComponent),
         children: [
             { path: 'Config', component:SettingsComponent },
             { path: ':type/:category', component:MediaListComponent },
