@@ -1,0 +1,23 @@
+<div class="fullWrapper">
+  <div class="loginWrapper">
+      <h2>My Hub - Register</h2>
+      <form class="loginForm" [formGroup]="registerForm" (submit)="sendRegister()">
+          <div class="inputField">
+              <label for="usename">Username</label>
+              <input type="text" name="username" id="user" formControlName="username">
+          </div>
+          <div class="inputField">
+            <label for="mail">Mail</label>
+            <input type="text" name="mail" id="mail" formControlName="mail">
+          </div>
+          <div class="inputField">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" formControlName="password">
+          </div>
+          <div *ngIf="message">{{ message }}</div>
+          <div class="inputField">
+              <button id="registerButton" type="submit">Enviar</button>
+          </div>
+        </form>
+  </div>
+</div>

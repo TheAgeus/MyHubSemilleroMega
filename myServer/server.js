@@ -3,10 +3,13 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { sql, connect } = require('./db');
+const cors = require('cors');
+require("dotenv").config();
 
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // Conectar a SQL Server
@@ -16,10 +19,17 @@ connect();
 app.post('/api/register', async (req, res) => {
   try {
     const { username, mail, password } = req.body;
+
+    const checkUser = await sql.query`
+      SELECT * FROM Users WHERE username_u = ${username} OR mail_u = ${mail}
+    `;
+
+    if (checkUser.recordset.length > 0) {
+      return res.status(409).json({ error: 'El usuario o correo ya están registrados' });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const result = await sql.query`INSERT INTO Users (username_u, mail_u, password_u) VALUES (${username}, ${mail}, ${hashedPassword})`;
-
     res.status(201).json({ message: 'Usuario registrado exitosamente' });
   } catch (error) {
     res.status(400).json({ error: 'El registro falló' });
@@ -34,14 +44,14 @@ app.post('/api/login', async (req, res) => {
     
 
     if (result.recordset.length === 0) {
-      return res.status(400).json({ error: 'Usuario no encontrado' });
+      return res.status(401).json({ error: 'Usuario no encontrado' });
     }
 
     const user = result.recordset[0];
     const isMatch = await bcrypt.compare(password, user.password_u);
 
     if (!isMatch) {
-      return res.status(400).json({ error: 'Contraseña incorrecta' });
+      return res.status(402).json({ error: 'Contraseña incorrecta' });
     }
 
     const token = jwt.sign({ userId: user.id }, 'secretKey', { expiresIn: '24h' });
@@ -65,6 +75,34 @@ const auth = (req, res, next) => {
   }
 };
 
+// get listo of categories from movies
+app.get('/api/movie-categories', auth, async (req, res) => {
+  const token = req.header('Authorization').replace('Bearer ', '');
+  
+  try {
+    const decoded = jwt.verify(token, 'secretKey');
+    const id = decoded.userId;
+    const result = await sql.query`SELECT category_m FROM Movies group by category_m;`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(401).json({ error: 'No autorizado' });
+  }
+});
+
+// get listo of categories from series
+app.get('/api/serie-categories', auth, async (req, res) => {
+  const token = req.header('Authorization').replace('Bearer ', '');
+  
+  try {
+    const decoded = jwt.verify(token, 'secretKey');
+    const id = decoded.userId;
+    const result = await sql.query`SELECT category_s FROM Series group by category_s;`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(401).json({ error: 'No autorizado' });
+  }
+});
+
 // Ruta Protegida get
 app.get('/api/me', auth, async (req, res) => {
   const token = req.header('Authorization').replace('Bearer ', '');
@@ -79,11 +117,27 @@ app.get('/api/me', auth, async (req, res) => {
   }
 });
 
+// Get all movies
 app.get('/api/movies', auth, async (req, res) => {
   const result = await sql.query`SELECT * FROM Movies`;
   res.status(200).json(result.recordset);
 });
 
+// Get all movies with certain category
+app.get('/api/get_by_category/movies/:category', auth, async (req, res) => {
+  const category = req.params.category;
+  const result = await sql.query`SELECT * FROM Movies WHERE category_m=${category}`;
+  res.status(200).json(result.recordset);
+});
+
+// Get all series with certain category
+app.get('/api/get_by_category/series/:category', auth, async (req, res) => {
+  const category = req.params.category;
+  const result = await sql.query`SELECT * FROM Series WHERE category_s=${category}`;
+  res.status(200).json(result.recordset);
+});
+
+// Get a certain movie
 app.get('/api/movies/:id', auth, async (req, res) => {
   const id = req.params.id;
   const result = await sql.query`SELECT * FROM Movies WHERE id=${id}`;
@@ -95,11 +149,13 @@ app.get('/api/movies/:id', auth, async (req, res) => {
   }
 });
 
+// Get all series
 app.get('/api/series', auth, async (req, res) => {
   const result = await sql.query`SELECT * FROM Series`;
   res.status(200).json(result.recordset);
 });
 
+// Get certain serie
 app.get('/api/series/:id', auth, async (req, res) => {
   const id = req.params.id;
   const result = await sql.query`SELECT * FROM Series WHERE id=${id}`;
@@ -112,6 +168,7 @@ app.get('/api/series/:id', auth, async (req, res) => {
   }
 });
 
+// Set a favorite movie to an user
 app.post('/api/user_like_movie/:movie_id', auth, async (req, res) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
@@ -125,6 +182,7 @@ app.post('/api/user_like_movie/:movie_id', auth, async (req, res) => {
   }
 });
 
+// Set user is watching a movie
 app.post('/api/user_watch_movie/:movie_id', auth, async (req, res) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
@@ -138,6 +196,7 @@ app.post('/api/user_watch_movie/:movie_id', auth, async (req, res) => {
   }
 });
 
+// Set user like a serie
 app.post('/api/user_like_serie/:serie_id', auth, async (req, res) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
@@ -151,6 +210,7 @@ app.post('/api/user_like_serie/:serie_id', auth, async (req, res) => {
   }
 });
 
+// set user is watching a serie
 app.post('/api/user_watch_serie/:serie_id', auth, async (req, res) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
@@ -161,6 +221,60 @@ app.post('/api/user_watch_serie/:serie_id', auth, async (req, res) => {
     res.status(201).json({ message: 'Viendo serie agregado' });
   } catch (error) {
     res.status(400).json({ error: 'Hubo error al intentar agregar a viendo serie' });
+  }
+});
+
+
+
+// Get user favorite movies
+app.get('/api/favorite_movies', auth, async (req, res) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`EXEC SP_GetFavoriteMoviesByUser @UserId = ${user_id}`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al intentar obtener tus peliculas favoritas' });
+  }
+});
+
+// Get user favorite series
+app.get('/api/favorite_series', auth, async (req, res) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`EXEC SP_GetFavoriteSeriesByUser @UserId = ${user_id}`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al intentar obtener tus series favoritas' });
+  }
+});
+
+// Get user watching movies
+app.get('/api/watching_movies', auth, async (req, res) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`EXEC SP_GetWatchingMoviesByUser @UserId = ${user_id}`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al intentar obtener las peliculas que estas viendo' });
+  }
+});
+
+// Get user watching series
+app.get('/api/watching_series', auth, async (req, res) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`EXEC SP_GetWatchingSeriesByUser @UserId = ${user_id}`;
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al intentar obtener las series que estas viendo' });
   }
 });
 

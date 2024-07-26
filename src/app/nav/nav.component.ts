@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ApiService } from '../api-service/api.service';
 
 interface Option {
   title: string;
@@ -17,9 +18,16 @@ interface Option {
 
 export class NavComponent {
 
+  apiService = inject(ApiService);
+
   category: string = '';
 
   isShowedMenu: boolean = false;
+
+  constructor () {
+    this.SetInitialMovieCategories()
+    this.SetInitialSerieCategories()
+  }
 
   movieCategories: string[] = [
     'Fantasía', 
@@ -30,9 +38,8 @@ export class NavComponent {
   ]
   
   otherMenuElements: Option[] = [
-    { title:'Favoritos', route:'/Dashboard/Peliculas/Favoritos' },
+    { title:'Favoritos', route:'/Dashboard/List_fav/Favorites' },
     { title:'Configuracion', route: '/Dashboard/Config' },
-    { title:'Cerrar sesión', route:'/' }
   ]
   
   // for showing my menu
@@ -40,9 +47,33 @@ export class NavComponent {
     this.isShowedMenu = true;
   }
 
+  logout(): void {
+    this.apiService.logout();
+  }
+
   // for hidding my menu
   hideMenu() {
     this.isShowedMenu = false;
   }
+  SetInitialMovieCategories() {
+    this.apiService.getMovieCategories().subscribe(
+      (categories: any[]) => {
+        this.movieCategories = categories.map(category => category.category_m);
+      },
+      (error) => {
+        console.error('Error fetching movie categories', error);
+      }
+    );
+  }
 
+  SetInitialSerieCategories() {
+    this.apiService.getSerieCategories().subscribe(
+      (categories: any[]) => {
+        this.serieCategories = categories.map(category => category.category_s);
+      },
+      (error) => {
+        console.error('Error fetching serie categories', error);
+      }
+    );
+  }
 }

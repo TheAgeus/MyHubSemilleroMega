@@ -1,10 +1,11 @@
 const sql = require('mssql');
+require("dotenv").config();
 
 const config = {
-  user: 'sa',
-  password: 'karla6yagustin1',
-  server: 'DESKTOP-68V7H89\\AGEUS', // O el nombre de tu servidor
-  database: 'MYHUB',
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  server: process.env.SERVER, // O el nombre de tu servidor
+  database: process.env.DATABASE,
   options: {
     encrypt: true, // Para conexiones seguras
     trustServerCertificate: true // Solo si es necesario

@@ -1,18 +1,21 @@
 <div class="fullWrapper">
     <div class="loginWrapper">
-        <h2>My Hub</h2>
-        <div class="loginForm">
+        <h2>My Hub - Login</h2>
+        <form class="loginForm" [formGroup]="loginForm" (submit)="sendLogin()">
             <div class="inputField">
                 <label for="user">User</label>
-                <input type="text" name="user" id="user">
+                <input type="text" name="username" id="user" formControlName="username">
             </div>
             <div class="inputField">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" formControlName="password">
             </div>
             <div class="inputField">
-                <a id="loginButton" href="/Dashboard/Peliculas/Favoritos">Entrar</a>
+                <button id="loginButton" type="submit">Entrar</button>
             </div>
-        </div>
+            <div class="inputField">
+                <a id="registerButton" href="/register">Registrarse</a>
+            </div>
+        </form>
     </div>
 </div>

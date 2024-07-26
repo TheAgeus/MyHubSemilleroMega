@@ -108,3 +108,12 @@ li {
 .hidde {
   display: none;
 }
+
+.logout {
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+}
+.logout:hover {
+  cursor: pointer;
+}
