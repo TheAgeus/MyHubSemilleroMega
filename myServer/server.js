@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { sql, connect } = require('./db');
 const cors = require('cors');
+const { moveCursor } = require('readline');
 require("dotenv").config();
 
 const app = express();
@@ -119,7 +120,25 @@ app.get('/api/me', auth, async (req, res) => {
 
 // Get all movies
 app.get('/api/movies', auth, async (req, res) => {
-  const result = await sql.query`SELECT * FROM Movies`;
+  const token = req.header('Authorization').replace('Bearer ', '');
+  const decoded = jwt.verify(token, 'secretKey');
+  const user_id = decoded.userId;
+  const result = await sql.query`SELECT 
+    m.id AS movie_id,
+    m.name_m AS movie_name,
+    m.description_m AS movie_description,
+    m.category_m AS movie_category,
+    m.img_url AS movie_img_url,
+    CASE 
+        WHEN uhm.movie_id IS NOT NULL THEN 'Sí'
+        ELSE 'No'
+    END AS es_favorito
+FROM 
+    Movies m
+LEFT JOIN 
+    (SELECT movie_id FROM Users_have_favorite_movies WHERE user_id = ${user_id}) uhm
+ON 
+    m.id = uhm.movie_id;`;
   res.status(200).json(result.recordset);
 });
 
@@ -151,7 +170,25 @@ app.get('/api/movies/:id', auth, async (req, res) => {
 
 // Get all series
 app.get('/api/series', auth, async (req, res) => {
-  const result = await sql.query`SELECT * FROM Series`;
+  const token = req.header('Authorization').replace('Bearer ', '');
+  const decoded = jwt.verify(token, 'secretKey');
+  const user_id = decoded.userId;
+  const result = await sql.query`SELECT 
+    s.id AS serie_id,
+    s.name_s AS serie_name,
+    s.description_s AS serie_description,
+    s.category_s AS serie_category,
+    s.img_url AS serie_img_url,
+    CASE 
+        WHEN uhm.serie_id IS NOT NULL THEN 'Sí'
+        ELSE 'No'
+    END AS es_favorito
+FROM 
+    Series s
+LEFT JOIN 
+    (SELECT serie_id FROM Users_has_favorite_series WHERE user_id = ${user_id}) uhm
+ON 
+    s.id = uhm.serie_id;`;
   res.status(200).json(result.recordset);
 });
 
@@ -275,6 +312,64 @@ app.get('/api/watching_series', auth, async (req, res) => {
     res.status(200).json(result.recordset);
   } catch (error) {
     res.status(400).json({ error: 'Hubo error al intentar obtener las series que estas viendo' });
+  }
+});
+
+// erase fav movie
+app.get('/api/eraseFavMovie/:id', auth, async (req, res) => {
+  try {
+    const movie_id = req.params.id;
+    console.log(movie_id);
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    console.log(`DELETE FROM Users_have_favorite_movies WHERE user_id=${user_id} AND movie_id=${movie_id}`)
+    const result = await sql.query`DELETE FROM Users_have_favorite_movies WHERE user_id = ${user_id} AND movie_id = ${movie_id}`;
+    res.status(200).json({message: "favorito borrado"});
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al borrar favorito' });
+  }
+});
+// erase fav serie
+app.get('/api/eraseFavSerie/:id', auth, async (req, res) => {
+  try {
+    const serie_id = req.params.id;
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`DELETE FROM Users_has_favorite_series WHERE user_id=${user_id} AND serie_id=${serie_id}`;
+    res.status(200).json({message: "favorito borrado"});
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al borrar favorito' });
+  }
+});
+
+// add fav serie
+app.get('/api/addFavSerie/:id', auth, async (req, res) => {
+  try {
+    const serie_id = req.params.id;
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`INSERT INTO Users_has_favorite_series (user_id, serie_id) VALUES (${user_id}, ${serie_id})`;
+    res.status(200).json({message: "favorito agregado"});
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al agregar favorito' });
+  }
+});
+
+// add fav serie
+app.get('/api/addFavMovie/:id', auth, async (req, res) => {
+  try {
+    const movie_id = req.params.id;
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, 'secretKey');
+    const user_id = decoded.userId;
+    const result = await sql.query`INSERT INTO Users_have_favorite_movies (user_id, movie_id)
+    VALUES (${user_id}, ${movie_id})`;
+    res.status(200).json({message: "favorito agregado"});
+  } catch (error) {
+    res.status(400).json({ error: 'Hubo error al agregar favorito' });
   }
 });
 

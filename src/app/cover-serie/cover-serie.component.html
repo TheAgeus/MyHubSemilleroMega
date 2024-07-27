@@ -1,0 +1,15 @@
+<div class="coverItem">
+  <div class="img">
+      <img src="{{ serie['img_url']??serie['serie_img_url'] }}" alt="Cover {{ serie['name_s']??serie['serie_name'] }}">
+  </div>
+  <div class="textPart">
+      <div class="title">{{ serie['name_s']??serie['serie_name'] }} <small>(serie)</small> </div>
+      <div class="desc">{{ (serie['description_s']??serie['serie_description']).substring(0, 150) + '...' }}</div>
+      <div class="controls">
+          <a class="btn" [routerLink]="['/Dashboard/Detail/Series', serie.id??serie['serie_id']]">Detalle</a>
+          <a class="btn" [routerLink]="['/Dashboard/Watch/Series', serie.id??serie['serie_id']]">Ver</a>
+          <a *ngIf="!isOnFavs" (click)="addFavSerie(serie.id??serie['serie_id'])" class="btn">Agregar a favoritos</a>
+          <a *ngIf="isOnFavs" (click)="eraseFavSerie(serie.id??serie['serie_id'])" class="btn">Borrar de favoritos</a>
+      </div>
+  </div>
+</div>

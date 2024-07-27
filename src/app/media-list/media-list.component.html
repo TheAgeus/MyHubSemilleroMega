@@ -2,6 +2,7 @@
 <div class="dashboardWrapper">
     
     <div class="titulo">
+        <h2 *ngIf="isOnFavs">Favoritos</h2>
         <h2>{{ type }} / {{ category }}</h2>
     </div>
 
@@ -14,40 +15,46 @@
         </div>
         
         <div *ngIf="!(loadingService.loading$ | async)" class="coverItemsWrapper">
-
-            <div *ngFor="let movie of movies" class="coverItem">
-                <div class="img">
-                    <img src="{{ movie['img_url'] ?? movie['movie_img_url'] }}" alt="Cover {{ movie['name_m']??movie['movie_name'] }}">
-                </div>
-                <div class="textPart">
-                    <div class="title">{{ movie['name_m']??movie['movie_name'] }}</div>
-                    <div class="desc">{{ movie['description_m'].substring(0, 150) + '...' }}</div>
-                    <div class="controls">
-                        <a class="btn" [routerLink]="['/Dashboard/Detail/Peliculas', movie.id]">Detalle</a>
-                        <a class="btn" [routerLink]="['/Dashboard/Watch/Peliculas', movie.id]">Ver</a>
-                        <a *ngIf="!movie.fav" (click)="addFav(movie)" class="btn">Agregar a favoritos</a>
-                        <a *ngIf="movie.fav" (click)="removeFav
-                        (movie)" class="btn">Eliminar de favoritos</a>
+            <!--
+                <div *ngFor="let movie of movies" class="coverItem">
+                    <div class="img">
+                        <img src="{{ movie['img_url'] ?? movie['movie_img_url'] ?? movie['movie_name'] }}" alt="Cover {{ movie['name_m']??movie['movie_name'] }}">
+                    </div>
+                    <div class="textPart">
+                        <div class="title">{{ movie['name_m']??movie['movie_name'] }}</div>
+                        <div class="desc">{{ (movie['description_m']??movie['movie_description']).substring(0, 150) + '...' }}</div>
+                        <div class="controls">
+                            <a class="btn" [routerLink]="['/Dashboard/Detail/Peliculas', movie.id??movie['movie_id']]">Detalle</a>
+                            <a class="btn" [routerLink]="['/Dashboard/Watch/Peliculas', movie.id??movie['movie_id']]">Ver</a>
+                            <a *ngIf="!isOnFavs" (click)="addFavMovie(movie.id??movie['movie_id'])" class="btn">Agregar a favoritos</a>
+                            <a *ngIf="isOnFavs" (click)="eraseFavMovie(movie.id??movie['movie_id'])" class="btn">Borrar de favoritos</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            -->
 
-            <div *ngFor="let serie of series" class="coverItem">
-                <div class="img">
-                    <img src="{{ serie['img_url'] }}" alt="Cover {{ serie['name_s'] }}">
-                </div>
-                <div class="textPart">
-                    <div class="title">{{ serie['name_s'] }}</div>
-                    <div class="desc">{{ serie['description_s'].substring(0, 150) + '...' }}</div>
-                    <div class="controls">
-                        <a class="btn" [routerLink]="['/Dashboard/Detail/Series', serie.id]">Detalle</a>
-                        <a class="btn" [routerLink]="['/Dashboard/Watch/Series', serie.id]">Ver</a>
-                        <a *ngIf="!serie.fav" (click)="addFav(serie)" class="btn">Agregar a favoritos</a>
-                        <a *ngIf="serie.fav" (click)="removeFav
-                        (serie)" class="btn">Eliminar de favoritos</a>
+            <app-cover *ngFor="let movie of movies" [movie]="movie">
+            </app-cover>
+
+            <app-cover-serie *ngFor="let serie of series" [serie]="serie">
+            </app-cover-serie>
+            <!--
+                <div *ngFor="let serie of series" class="coverItem">
+                    <div class="img">
+                        <img src="{{ serie['img_url']??serie['serie_img_url'] }}" alt="Cover {{ serie['name_s']??serie['serie_name'] }}">
+                    </div>
+                    <div class="textPart">
+                        <div class="title">{{ serie['name_s']??serie['serie_name'] }}</div>
+                        <div class="desc">{{ (serie['description_s']??serie['serie_description']).substring(0, 150) + '...' }}</div>
+                        <div class="controls">
+                            <a class="btn" [routerLink]="['/Dashboard/Detail/Series', serie.id??serie['serie_id']]">Detalle</a>
+                            <a class="btn" [routerLink]="['/Dashboard/Watch/Series', serie.id??serie['serie_id']]">Ver</a>
+                            <a *ngIf="!isOnFavs" (click)="addFavSerie(serie.id??serie['serie_id'])" class="btn">Agregar a favoritos</a>
+                            <a *ngIf="isOnFavs" (click)="eraseFavSerie(serie.id??serie['serie_id'])" class="btn">Borrar de favoritos</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            -->
         </div>
     </div>
 </div>

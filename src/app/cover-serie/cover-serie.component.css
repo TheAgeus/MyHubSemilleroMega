@@ -1,0 +1,79 @@
+.contentWrapper {
+  padding-top: 3rem;
+}
+.titulo {
+  padding-bottom: 1rem;
+}
+.titulo h2 {
+  text-align: center;
+}
+.contentWrapper h2 {
+  text-align: center;
+  padding-block: 3rem;
+}
+.coverItemsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.coverItem {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  min-width: 150px;
+  max-width: 560px;
+  align-items: self-start;
+}
+.coverItem .img {
+  flex: 1 ;
+  max-width: 350px;
+  min-width: 150px;
+}
+.coverItem .img img {
+  width: 100%;
+}
+.coverItem .textPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.coverItem .textPart .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+.coverItem .textPart .desc {
+  line-height: 1rem;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+}
+.coverItem .textPart .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.coverItem .textPart .controls .btn {
+  border: 1px solid white;
+  padding-inline: 0.5rem;
+  font-size: 0.9rem;
+}
+.coverItem .textPart .controls .btn:hover {
+  cursor: pointer;
+  background-color: blue;
+}
+
+
+@media (width > 750px) {
+  .coverItemsWrapper {
+      display: grid;
+      width: calc(100vw - 4rem);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      justify-content: center;
+      padding-inline: 2rem;
+      gap: 0.5rem;
+  }
+  .coverItem {
+      height: fit-content;
+      max-width: 350px;
+  }
+}

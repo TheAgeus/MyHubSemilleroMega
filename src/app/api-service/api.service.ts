@@ -141,4 +141,44 @@ export class ApiService {
     return this.http.get<string[]>(`${this.apiUrl}/favorite_series`, {headers});
   }
 
+  eraseFavMovie(id : any): Observable<any[]> {
+    const token = this.token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Custom-Header': 'CustomHeaderValue', // Add other headers as needed
+      'Authorization': `Bearer ${token}` // Add the token as an Authorization header
+    });
+    return this.http.get<string[]>(`${this.apiUrl}/eraseFavMovie/${id}`, {headers});
+  } 
+
+  eraseFavSerie(id : any): Observable<any[]> {
+    const token = this.token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Custom-Header': 'CustomHeaderValue', // Add other headers as needed
+      'Authorization': `Bearer ${token}` // Add the token as an Authorization header
+    });
+    return this.http.get<string[]>(`${this.apiUrl}/eraseFavSerie/${id}`, {headers});
+  } 
+
+  addFavSerie(id : any): Observable<any[]> {
+    const token = this.token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Custom-Header': 'CustomHeaderValue', // Add other headers as needed
+      'Authorization': `Bearer ${token}` // Add the token as an Authorization header
+    });
+    return this.http.get<string[]>(`${this.apiUrl}/addFavSerie/${id}`, {headers});
+  } 
+
+  addFavMovie(id : any): Observable<any[]> {
+    const token = this.token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Custom-Header': 'CustomHeaderValue', // Add other headers as needed
+      'Authorization': `Bearer ${token}` // Add the token as an Authorization header
+    });
+    return this.http.get<string[]>(`${this.apiUrl}/addFavMovie/${id}`, {headers});
+  } 
+
 }

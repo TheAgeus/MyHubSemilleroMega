@@ -6,6 +6,8 @@ import { LoadingService } from '../loading-service/loading.service';
 import { of, forkJoin  } from 'rxjs';
 import { finalize, delay } from 'rxjs/operators';
 import { ApiService } from '../api-service/api.service';
+import { CoverComponent } from '../cover/cover.component';
+import { CoverSerieComponent } from "../cover-serie/cover-serie.component";
 
 interface Movie {
   id: number;
@@ -19,7 +21,7 @@ interface Movie {
 @Component({
   selector: 'app-media-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CoverComponent, CoverSerieComponent],
   templateUrl: './media-list.component.html',
   styleUrl: './media-list.component.css'
 })
@@ -28,6 +30,9 @@ export class MediaListComponent {
 
   // api service
   apiService = inject(ApiService);
+
+  // is on favs
+  isOnFavs:boolean = false;
 
   // keep track of category
   category:string = ""
@@ -58,8 +63,9 @@ export class MediaListComponent {
       this.type = params['type'];
        
       if (params['fav']) {
-        console.log("favs")
-        this.loadFav()
+        this.isOnFavs = true;
+        console.log("favs");
+        this.loadFav();
       }
       else if (this.category == undefined && this.type == undefined) {
         console.log("no categoria no tipo")
@@ -151,15 +157,55 @@ export class MediaListComponent {
 
 
   // change fav proportie and save it in localStorage to positive true
-  addFav(movie: Movie) {
-    
+  addFavMovie(movie_id : any) {
+    let observer$ = this.apiService.addFavMovie(movie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
   // change fav proportie and save it in localStorage to false
-  removeFav(movie: Movie) {
-    
+  eraseFavMovie(movie_id : any) {
+    let observer$ = this.apiService.eraseFavMovie(movie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+  // change fav proportie and save it in localStorage to positive true
+  addFavSerie(serie_id : any) {
+    let observer$ = this.apiService.addFavSerie(serie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
+  // change fav proportie and save it in localStorage to false
+  eraseFavSerie(serie_id : any) {
+    let observer$ = this.apiService.eraseFavSerie(serie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 
 }
 
