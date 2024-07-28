@@ -47,7 +47,7 @@ Ahora el code coverage y tests
 ![/capturas/8.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/8.JPG)
 
 Diagrama entidad relacion
-![/capturas/9.png](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/9.PNG)
+![/capturas/9.png](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/9.png)
 
 
 Las queries las tiengo en el directiorio raiz de este proyecto
