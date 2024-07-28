@@ -23,28 +23,28 @@ La autentificación es una parte importante de las aplicaciones ya que, no a tod
 
 ### Capturas
 Primera entrada en el dashboard al logearse
-![/capturas/1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/1.PNG)
+![/capturas/1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/1.JPG)
 
 Favoritos
-![/capturas/2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/2.PNG)
+![/capturas/2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/2.JPG)
 
 Cuando agregas o eliminas un favorito cambia el boton, se actualiza la base de datos y sale un mensaje por consola
-![/capturas/3.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/3.PNG)
+![/capturas/3.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/3.JPG)
 
 Puedes cerrar sesion y se borra el toquen, entonces ya no puedes entrar, te redirecciona al login. VER VIDEO EN LA CARPETA DE VIDEOS
-![/capturas/4.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/4.PNG)
+![/capturas/4.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/4.JPG)
 
 Agrege pagina de no found para cualquiera que no sea una ruta registrada.
-![/capturas/5.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/5.PNG)
+![/capturas/5.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/5.JPG)
 
 Ahora el code coverage y tests
-![/capturas/codecoverage.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/codecoverage.PNG)
+![/capturas/codecoverage.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/codecoverage.JPG)
 
-![/capturas/6.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/6.PNG)
+![/capturas/6.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/6.JPG)
 
-![/capturas/7.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/7.PNG)
+![/capturas/7.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/7.JPG)
 
-![/capturas/8.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/8.PNG)
+![/capturas/8.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/8.JPG)
 
 Diagrama entidad relacion
 ![/capturas/9.png](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/9.PNG)
