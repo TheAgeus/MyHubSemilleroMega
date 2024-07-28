@@ -14,7 +14,7 @@ import { ApiService } from '../api-service/api.service';
 export class CoverComponent {
   isOnFavs : boolean = false;
   apiService = inject(ApiService);
-  @Input() movie: any; 
+  @Input() movie: any = {}; 
 
   constructor  () {
   }
@@ -30,6 +30,7 @@ export class CoverComponent {
     }
   }
 
+  // toggles is on fav of movie and add or erase record in database
   addFavMovie(movie_id : any) {
     let observer$ = this.apiService.addFavMovie(movie_id);
     observer$.pipe().subscribe({
@@ -42,7 +43,8 @@ export class CoverComponent {
       }
     })
   }
-  
+
+  // toggles is on fav of movie and add or erase record in database
   eraseFavMovie(movie_id : any) {
     let observer$ = this.apiService.eraseFavMovie(movie_id);
     observer$.pipe().subscribe({

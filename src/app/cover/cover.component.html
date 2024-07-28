@@ -1,10 +1,10 @@
 <div class="coverItem">
   <div class="img">
-      <img src="{{ movie['img_url'] ?? movie['movie_img_url'] ?? movie['movie_name'] }}" alt="Cover {{ movie['name_m']??movie['movie_name'] }}">
+      <img src="{{ movie['img_url'] ?? movie['movie_img_url'] ?? movie['movie_name'] ??''}}" alt="Cover {{ movie['name_m']??movie['movie_name']??'' }}">
   </div>
   <div class="textPart">
-      <div class="title">{{ movie['name_m']??movie['movie_name'] }} <small>(peli)</small></div>
-      <div class="desc">{{ (movie['description_m']??movie['movie_description']).substring(0, 150) + '...' }}</div>
+      <div class="title">{{ movie['name_m']??movie['movie_name']??'' }} <small>(peli)</small></div>
+      <div class="desc">{{ (movie['description_m']??movie['movie_description']??'').substring(0, 150) + '...' }}</div>
       <div class="controls">
           <a class="btn" [routerLink]="['/Dashboard/Detail/Peliculas', movie.id??movie['movie_id']]">Detalle</a>
           <a class="btn" [routerLink]="['/Dashboard/Watch/Peliculas', movie.id??movie['movie_id']]">Ver</a>

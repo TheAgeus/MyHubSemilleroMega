@@ -72,6 +72,7 @@ export class DetalleComponent {
     });
   }
 
+  // this is only for learning end
   getTitle() :string{
     return this.element['name_m'] ?? this.element['name_s'] ?? 'Default Name';
   }

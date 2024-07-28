@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { inject } from '@angular/core';
 import { ApiService } from '../api-service/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-cover-serie',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, HttpClientModule, RouterModule ],
   templateUrl: './cover-serie.component.html',
   styleUrl: './cover-serie.component.css'
 })
 export class CoverSerieComponent {
   isOnFavs : boolean = false;
   apiService = inject(ApiService);
-  @Input() serie: any; 
+  @Input() serie: any = {}; 
 
 
   constructor  () {
@@ -31,7 +32,7 @@ export class CoverSerieComponent {
     }
   }
 
-  // change fav proportie and save it in localStorage to positive true
+  // toggles is on fav of serie and add or erase record in database
   addFavSerie(serie_id : any) {
     let observer$ = this.apiService.addFavSerie(serie_id);
     observer$.pipe().subscribe({
@@ -45,7 +46,7 @@ export class CoverSerieComponent {
     })
   }
 
-  // change fav proportie and save it in localStorage to false
+  // toggles is on fav of serie and add or erase record in database
   eraseFavSerie(serie_id : any) {
     let observer$ = this.apiService.eraseFavSerie(serie_id);
     observer$.pipe().subscribe({

@@ -1,147 +1,163 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { of, throwError } from 'rxjs';
 import { MediaListComponent } from './media-list.component';
-import { ActivatedRoute, convertToParamMap } from '@angular/router';
-import { of } from 'rxjs';
 import { LoadingService } from '../loading-service/loading.service';
+import { ApiService } from '../api-service/api.service';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 describe('MediaListComponent', () => {
   let component: MediaListComponent;
-  let fixture: ComponentFixture<MediaListComponent>;
-  let loadingService: LoadingService;
+  let loadingService: jasmine.SpyObj<LoadingService>;
+  let apiService: jasmine.SpyObj<ApiService>;
 
   beforeEach(async () => {
+    const loadingServiceSpy = jasmine.createSpyObj('LoadingService', ['show', 'hide']);
+    const apiServiceSpy = jasmine.createSpyObj('ApiService', ['addFavMovie', 'eraseFavMovie', 'addFavSerie', 'eraseFavSerie','getFavoriteMovies', 'getFavoriteSeries','getAllMovies', 'getAllSeries', 'getMoviesByCategory', 'getSeriesByCategory']);
+
     await TestBed.configureTestingModule({
-      declarations: [],
       providers: [
+        MediaListComponent,
+        { provide: LoadingService, useValue: loadingServiceSpy },
+        { provide: ApiService, useValue: apiServiceSpy },
         {
           provide: ActivatedRoute,
           useValue: {
+            params: of({ category: 'action', type: 'Peliculas' }),
             snapshot: {
-              paramMap: convertToParamMap({ category: 'Fantasía', type: 'Peliculas' }) // Mocking route params
-            },
-            params: of({ category: 'Fantasía', type: 'Peliculas' }) // Mocking ActivatedRoute.params observable
+              paramMap: convertToParamMap({ category: 'action', type: 'Peliculas' })
+            }
           }
-        },
-        LoadingService // Provide LoadingService
+        }
       ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MediaListComponent);
-    component = fixture.componentInstance;
-    loadingService = TestBed.inject(LoadingService); // Inject LoadingService
-
-    spyOn(loadingService, 'show').and.callThrough();
-    spyOn(loadingService, 'hide').and.callThrough();
-
-    fixture.detectChanges(); // Trigger change detection
+    component = TestBed.inject(MediaListComponent);
+    loadingService = TestBed.inject(LoadingService) as jasmine.SpyObj<LoadingService>;
+    apiService = TestBed.inject(ApiService) as jasmine.SpyObj<ApiService>;
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should load favorite movies and series', (done) => {
+    const mockMovies = [{ id: 1, title: 'Movie 1' }];
+    const mockSeries = [{ id: 1, title: 'Series 1' }];
 
-  it('should filter movies based on category and hide loading after delay', (done: DoneFn) => {
-    const mockMovies = [
-      { 
-        id: 1,
-        category: "Fantasía",
-        img: 'https://image.tmdb.org/t/p/original/cSkGnAA9b7Hj4rs51KdMsUfFpBd.jpg', 
-        title: "The Lord of The Rings - Vol 1",
-        shortDesc: "An epic and fantastic adventure with hobbits and some other creatures. All is about a mighty ring lol",
-        fav: false
-      },
-      { 
-        id: 2,
-        category: "Terror",
-        img: 'https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg', 
-        title: "The Conjuring",
-        shortDesc: "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.",
-        fav: false
-      },
-      { 
-        id: 3,
-        category: "Terror",
-        img: 'https://th.bing.com/th/id/OIP.rsE5k8cZMlOagEk6UfjPPAAAAA?rs=1&pid=ImgDetMain', 
-        title: "A Nightmare on Elm Street",
-        shortDesc: "The monstrous spirit of a slain janitor seeks revenge by invading the dreams of teenagers whose parents were responsible for his untimely death.",
-        fav: false
-      },
-      {  
-        id: 4,
-        category: "Terror",
-        img: 'https://m.media-amazon.com/images/M/MV5BYjg1YTRkNzQtODgyYi00MTQ5LThiMDYtNDJjMWRjNTdjZDZlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg', 
-        title: "It",
-        shortDesc: "In the small town of Derry, a group of kids band together to face a shapeshifting monster that takes the form of a clown.",
-        fav: false
-      },
-      { 
-        id: 5,
-        category: "Terror",
-        img: 'https://image.tmdb.org/t/p/original/oWyQdmhVgUIbNuRpn272ShJrrcZ.jpg', 
-        title: "The Exorcist",
-        shortDesc: "When a young girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her.",
-        fav: false
-      },
-      {
-        id: 6,
-        category: "Fantasía",
-        img: 'https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/61/d0/b3/61d0b322-414b-a7ba-dfdc-4c4a0e4663ad/source/900x900bb.jpg',
-        title: "Harry Potter and the Sorcerer's Stone",
-        shortDesc: "An orphaned boy discovers he is a wizard on his 11th birthday and goes on to attend a magical school, uncovering the truth about his parents and his destiny.",
-        fav: false
-      },
-      {
-        id: 7,
-        category: "Terror",
-        img: 'https://th.bing.com/th/id/OIP.RbvsiuoskRaf_vnuiJ0nKQHaLH?rs=1&pid=ImgDetMain',
-        title: "Hereditary",
-        shortDesc: "After the death of their secretive grandmother, a family is haunted by tragic and disturbing occurrences, unraveling dark secrets about their ancestry.",
-        fav: false
-      },
-      {
-        id: 8,
-        category: "Terror",
-        img: 'https://image.tmdb.org/t/p/original/ArPWMf2leE6H9IIJ3tHVt6uewLR.jpg',
-        title: "The Babadook",
-        shortDesc: "A single mother and her child fall into a deep well of paranoia when an eerie children's book titled 'Mister Babadook' manifests in their home.",
-        fav: false
-      }
-    ];
-    component.movies = mockMovies;
+    apiService.getFavoriteMovies.and.returnValue(of(mockMovies));
+    apiService.getFavoriteSeries.and.returnValue(of(mockSeries));
 
-    component.category = 'Fantasía'; // Example category for testing
-
-    component.filterMovies();
+    component.loadFav();
 
     expect(loadingService.show).toHaveBeenCalled();
+    expect(apiService.getFavoriteMovies).toHaveBeenCalled();
+    expect(apiService.getFavoriteSeries).toHaveBeenCalled();
 
+    // Allow asynchronous operations to complete
     setTimeout(() => {
-      fixture.detectChanges(); // Update view after filtering
-      expect(component.filteredMovies.length).toEqual(2); // Ensure movies are filtered correctly
+      expect(component.movies).toEqual(mockMovies);
+      expect(component.series).toEqual(mockSeries);
       expect(loadingService.hide).toHaveBeenCalled();
       done();
-    }, 2000); // Adjust timeout to match delay in filterMovies() method
+    }, 0);
   });
 
-  it('should update localStorage with movies array', () => {
-    // Prepare some mock movies
-    const mockMovies = [
-      { id: 1, category: 'Fantasía', img: '...', title: 'Movie 1', shortDesc: '...', fav: false },
-      { id: 2, category: 'Terror', img: '...', title: 'Movie 2', shortDesc: '...', fav: false }
-    ];
+  it('should load all movies and series', (done) => {
+    const mockMovies = [{ id: 1, title: 'Movie 1' }];
+    const mockSeries = [{ id: 1, title: 'Series 1' }];
 
-    // Set the movies array in the component
-    component.movies = mockMovies;
+    apiService.getAllMovies.and.returnValue(of(mockMovies));
+    apiService.getAllSeries.and.returnValue(of(mockSeries));
 
-    // Call the method to update localStorage
-    component.updateLocalStorage();
+    component.loadMoviesAndSeries();
 
-    // Retrieve from localStorage and parse JSON
-    const storedMovies = localStorage.getItem('movies') as string;
-    const storedMoviesArray = JSON.parse(storedMovies);
+    expect(loadingService.show).toHaveBeenCalled();
+    expect(apiService.getAllMovies).toHaveBeenCalled();
+    expect(apiService.getAllSeries).toHaveBeenCalled();
 
-    // Assert that storedMoviesArray matches mockMovies
-    expect(storedMoviesArray).toEqual(mockMovies);
+    // Allow asynchronous operations to complete
+    setTimeout(() => {
+      expect(component.movies).toEqual(mockMovies);
+      expect(component.series).toEqual(mockSeries);
+      expect(loadingService.hide).toHaveBeenCalled();
+      done();
+    }, 0);
+  });
+
+  it('should add a favorite movie', (done) => {
+    const mockResponse = { message: 'favorito agregado' };
+    apiService.addFavMovie.and.returnValue(of(mockResponse));
+
+    component.addFavMovie(1);
+
+    setTimeout(() => {
+      expect(apiService.addFavMovie).toHaveBeenCalledWith(1);
+      done();
+    }, 0);
+  });
+
+  it('should erase a favorite movie', (done) => {
+    const mockResponse = { message: 'favorito borrado' };
+    apiService.eraseFavMovie.and.returnValue(of(mockResponse));
+
+    component.eraseFavMovie(1);
+
+    setTimeout(() => {
+      expect(apiService.eraseFavMovie).toHaveBeenCalledWith(1);
+      done();
+    }, 0);
+  });
+
+  it('should add a favorite series', (done) => {
+    const mockResponse = { message: 'favorito agregado' };
+    apiService.addFavSerie.and.returnValue(of(mockResponse));
+
+    component.addFavSerie(1);
+
+    setTimeout(() => {
+      expect(apiService.addFavSerie).toHaveBeenCalledWith(1);
+      done();
+    }, 0);
+  });
+
+  it('should erase a favorite series', (done) => {
+    const mockResponse = { message: 'favorito borrado' };
+    apiService.eraseFavSerie.and.returnValue(of(mockResponse));
+
+    component.eraseFavSerie(1);
+
+    setTimeout(() => {
+      expect(apiService.eraseFavSerie).toHaveBeenCalledWith(1);
+      done();
+    }, 0);
+  });
+
+  it('should load movies by category successfully', (done) => {
+    const mockMovies = [{ id: 1, title: 'Movie 1' }];
+    apiService.getMoviesByCategory.and.returnValue(of(mockMovies));
+
+    component.loadData('Action', 'Peliculas');
+
+    setTimeout(() => {
+      expect(apiService.getMoviesByCategory).toHaveBeenCalledWith('Action');
+      expect(component.movies).toEqual(mockMovies);
+      expect(component.series).toEqual([]);
+      expect(loadingService.show).toHaveBeenCalled();
+      expect(loadingService.hide).toHaveBeenCalled();
+      done();
+    }, 0);
+  });
+
+  it('should load series by category successfully', (done) => {
+    const mockSeries = [{ id: 1, title: 'Series 1' }];
+    apiService.getSeriesByCategory.and.returnValue(of(mockSeries));
+
+    component.loadData('Drama', 'Series');
+
+    setTimeout(() => {
+      expect(apiService.getSeriesByCategory).toHaveBeenCalledWith('Drama');
+      expect(component.series).toEqual(mockSeries);
+      expect(component.movies).toEqual([]);
+      expect(loadingService.show).toHaveBeenCalled();
+      expect(loadingService.hide).toHaveBeenCalled();
+      done();
+    }, 0);
   });
 
 });

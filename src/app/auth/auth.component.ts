@@ -26,7 +26,7 @@ export class AuthComponent {
     }
   );
 
-
+  // post login and returns a token that stores in local storage and in api service
   sendLogin() {
     const body = JSON.stringify({
       'username' :this.loginForm.value.username,
@@ -36,7 +36,7 @@ export class AuthComponent {
       next: (res: any) => {
         if (res.token) {
           console.log("theres is token")
-          this.apiService.token = res.token;
+          this.apiService.token = res.token; // here we store in api service
           localStorage.setItem('token', res.token);
           this.router.navigateByUrl('/Dashboard');
           console.log("Se supone que te debe direccionar")

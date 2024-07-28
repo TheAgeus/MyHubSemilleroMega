@@ -8,6 +8,7 @@ export class LoadingService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSubject.asObservable();
 
+  // this both functions only are for showingorhidding
   show() {
     this.loadingSubject.next(true);
   }

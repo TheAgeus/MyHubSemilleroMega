@@ -1,4 +1,4 @@
-# SPRINT 3 - HUB DE ENTRETENIMIENTO - MY HUB - Procesos asíncronos y testing
+# SPRINT 4 - HUB DE ENTRETENIMIENTO - MY HUB - Consumo de Base de datos
 
 * Nombre del proyecto - MYHUB
 * Nombre del desarrollador: Agustín Aguilar Eusebio
@@ -6,72 +6,114 @@
 
 
 ### Descripción
-Ahora que tenemos nuestro proyecto en angular, lo que sigue es aumentar la dificultad y agregar funcionalidades más actuales con programación asíncrona y además, para asegurar la calidad de nuestro código, utilizar testing que es muy utilizado en la empresas para asegurar esa calidad de código.
+Tenemos una aplicación funcional en ángular, con diseño. Ya implementamos funcionalidad asíncrona y testing, ahora para que se asemeje más a la realidad, vamos a consumir base de datos.
 
-Utilizaremos funcionalidad de RXjs y Karma con Jasmine.
+Las bases de datos son una herramienta crucial en el mundo de las aplicaciones y la información. Casi toda aplicación si no es que todas, ocupan bases de datos para mantener concordancia con la información de los usuarios.
 
-Code coverage es una herramienta que nos ayuda a saber cuánto de nuestro código está cubierto por nuestros tests.
+En nuestra aplicación aplica lo de dar seguimiento a la información de los usuarios, ya que los usuarios pueden tener películas o series favoritas.
+
+La autentificación es una parte importante de las aplicaciones ya que, no a todo mundo le vamos a facilitar nuestros servicios, ya sea por méritos económicos o de personalización, la autentificación es algo que no debe de faltar en las aplicaciones modernas.
 
 ### Objetivo
 
-- Dar un primer acercamiento a lo que se refiere programación explicitamente asíncrona.
-- Dar un primer acercamiento a lo que se refiere el testing.
-
+- Implementar una base de datos para que nuestra aplicación funcione en base a esa base de datos y a los datos que esta contiene.
+- Implementación de autentifiación
+- Aplicar seguridad a las rutas
 
 
 ### Capturas
-Esta es la leyenda que sale cuando se está cargando la info
-![/capturas/cap1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/cap3.PNG)
-![/capturas/cap2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/cap2.PNG)
+Primera entrada en el dashboard al logearse
+![/capturas/1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/1.PNG)
+
+Favoritos
+![/capturas/2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/2.PNG)
+
+Cuando agregas o eliminas un favorito cambia el boton, se actualiza la base de datos y sale un mensaje por consola
+![/capturas/3.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/3.PNG)
+
+Puedes cerrar sesion y se borra el toquen, entonces ya no puedes entrar, te redirecciona al login. VER VIDEO EN LA CARPETA DE VIDEOS
+![/capturas/4.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/4.PNG)
+
+Agrege pagina de no found para cualquiera que no sea una ruta registrada.
+![/capturas/5.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/5.PNG)
+
+Ahora el code coverage y tests
+![/capturas/codecoverage.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/codecoverage.PNG)
+
+![/capturas/6.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/6.PNG)
+
+![/capturas/7.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/7.PNG)
+
+![/capturas/8.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/8.PNG)
+
+Diagrama entidad relacion
+![/capturas/9.png](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/9.PNG)
 
 
-### Mi code coverage
-![/capturas/codecoverage2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/codecoverage2.PNG)
+Las queries las tiengo en el directiorio raiz de este proyecto
 
-### Mi testing
-![/capturas/test.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintThree/capturas/test.PNG)
 
 ### Instrucciones de uso
+PARA LA BASE DE DATOS
+- Instalar servidor sql express es recomendado
+- crear tu base de datos
+- generar las tablas y procedimientos desde mi archivo de queries
+
+PARA EL PROYECTO
 - Clonar el proyecto
 - cd MyHubSemilleroMega
-- git checkout sprintThree
+- git checkout sprintFour
+
+PARA EL FRONT
+- en una terminal en directiorio raiz del proyecto...
 - code .
 - open new terminal
 - npm install
 - ng s
 - ctrl + click in link
-- enjoy
+
+PARA EL BACK
+- abrir otra terminal en la ruta raiz del proyecto
+- cd myServer
+- poner un .env siguiendo el ejemplo del .env example
+- node server.js
 
 Para probar los testing:
 - ng test
 - ng test --code-coverage
 
+- registra usuarios no se necesita confirmacion de mail
+- listo, a disfrutar
+
 ### Descripción del proceso
 
-Para empezar tuve que decidir en dónde iba a implementar el RXJS, yo ya tenía algo de programación asíncrona con "this.route.params.subscribe(params =>" según yo, hace uso de rxjs internamente, pero quise manejarlo ya más explicitamente con "of", "pipe", "finalice", "delay" e importando el módulo de rxjs.
+La verdad a principios del sprint me sentía muy relajado, pensé que solo sería una implementación sencilla de una base de datos, pero poco a poco se me fueron presentando problema tras problema, y cada vez se me hacía más complejo el asunto. Para empezar, quise pensar en mis entidades, yo quise utilizar solo cuatro, Usuario, Película, Serie y Capítulo.
 
-Lo que hago con el route.params.suscribe, es que dos propiedades de la clase MediaListComponent están suscritos a los parámetros de la url de Dashboard, al menos así lo entiendo, y entonces cada que cambian esos parámetros y se manda a llamar o se utiliza el componente ligado a esa ruta, pues, dependiendo de los parámetros, cambia el contenido de ese componente MediaList. Esto puede ser disparado desde cualquier lugar de la aplicación.
+Me di cuenta que usuario con serie y pelicula tenian relacion muchos a muchos por lo que se me gerenaron otras dos tablas, para llevar a cabo la relacion de los favoritos de un usuario y los que se esta viendo, pero duplique esa tabla para llevar a cabo ese cometido. Tal vez no fue lo mejor porque dupliqué la complejidad del proyecto. Bueno, despues de haber hecho mis tablas, quise hacer unas queries para irme familiarizando con lo ellas. Después quise hacer la api para conectarla con mi base de datos. Hasta eso todo bien, pero en ese punto recordé que tenía que ser con autentificación, entonces tuve que buscar cómo hacerlo y para encontrarlo y entenderlo me tardé un tiempo.
 
-Después sentí que no era suficiente y entonces hice una funcionalidad para que cuando se esté cargando información del localStorage o se estén filtrando los datos, se muestre una leyenda de que se está cargando la información. Esto desde un servicio.
+Para proteger las rutas y eso, también me tomó tiempo comprenderlo, y modificar mis rutas de la api para que funcionaran con auth. 
 
-Para los test la verdad tuve muchos problemas debido a que no sé mucho sobre rxjs y mucho menos a probar/testear cuando se utilizan estos y rutas. A lo que entendí, en el entorno virtual que se genera con lo de los tests, debes de igual manera simular que tienes en el entorno ciertos parámetros esperados para asi poder obtenerlos y con ellos ya hacer el test correspondiente, ya sea que se renderice o cualquier funcionalidad.
+Después tuve que ver como conectar la aplicacion de angular con la api. Es lo que más me costó trabajo porque tuve que borrar casi todo lo que ya tenía y adaptarlo para que consumiera desde una api y ademas bucar el como conectar el front con la api. 
+
+Despues de batallar mucho, lo logre, desde el front ya hacia peticiones http y me regresaba resultados, despues de unas correcciones y seguir adaptando, ya se logró.
+
+Ya estaba listo para entregar y olvido que tambien había que hacer test de esto, y me ayude mucho de chatgpt porque hay muchas cosas de los test que no entiendo muy bien como funciona y menos cuando hay tanta funcion asíncrona y mucho tema. Pero despues de leer tantos test ya me voy dando una idea.
 
 
 
 ### Problemas conocidos
 
-- Entender un poco el rxjs
-- Acomodar mis componentes de forma en la que se adapten al cambio del rxjs
-- Entender el testing con rxjs
-- Simular un tiempo de carga y saber dónde colocarlo para testear esa funcionalida asíncrona
+- el como hacer peticiones http se me dificulto mucho, el tema de seguridad tambien
+- el tener que cambiar y adaptar el código que ya tenía se me hizo pesado también además de hacer los test
+- lo de la programacion asíncrona también y el local storage me volvió a pasar, además del cors, aunque eso estuvo más facil de solucionar
 
 
 ### Retrospectiva
 ### ¿Qué hice bien?
-Las ideas que tuve tan vez no sean las más originales, pero creo que para fines prácticos son los ideales a la hora de aprender y acercarte a una nueva tecnología
+Sigo creyendo que mi interfaz de usuario es muy bonita, el usar tokens para la autorizacion y basarme en el para no tener que tomar el id del usuario, aunque creo que eso ya se hace en todos lados desde el token.
 
 ### ¿Qué no hice bien?
-No tener todo bien organizado y no haber cambiado por completo mi local storage para que de todas las formas se utiliza rxjs para traer los datos, utilizar mucho las rutas cuando no sabía que sumaría complejidad.
+No planificar bien las consultas antes de implementar la api, pensar en todas las posibles consultas que se me iban a presentar que realizara
 
 ### ¿Qué podría mejorar?
-Hacer un metodo que esconda mi menu si pico afuera de él
+definitivamente el diseño de la api y también, ahora que se usar un poco más ángular, planificar mejor la aplicacion, los servicios, los guards, las rutas.

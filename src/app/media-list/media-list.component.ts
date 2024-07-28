@@ -79,6 +79,7 @@ export class MediaListComponent {
     });
   }
 
+  // this is for view of favorites
   loadFav() {
     this.loadingService.show();
 
@@ -134,6 +135,7 @@ export class MediaListComponent {
     });
   }
 
+  // loads all series an movies
   loadMoviesAndSeries(): void {
     this.loadingService.show();
 
@@ -156,7 +158,7 @@ export class MediaListComponent {
   }
 
 
-  // change fav proportie and save it in localStorage to positive true
+  // add from db fav movie and toggles in cover item
   addFavMovie(movie_id : any) {
     let observer$ = this.apiService.addFavMovie(movie_id);
     observer$.pipe().subscribe({
@@ -169,7 +171,7 @@ export class MediaListComponent {
     })
   }
 
-  // change fav proportie and save it in localStorage to false
+  // erase from db fav movie and toggles in cover item
   eraseFavMovie(movie_id : any) {
     let observer$ = this.apiService.eraseFavMovie(movie_id);
     observer$.pipe().subscribe({
@@ -181,7 +183,8 @@ export class MediaListComponent {
       }
     })
   }
-  // change fav proportie and save it in localStorage to positive true
+
+  // add from db fav serie and toggles in cover item
   addFavSerie(serie_id : any) {
     let observer$ = this.apiService.addFavSerie(serie_id);
     observer$.pipe().subscribe({
@@ -194,7 +197,7 @@ export class MediaListComponent {
     })
   }
 
-  // change fav proportie and save it in localStorage to false
+  // erase from db fav serie and toggles in cover item
   eraseFavSerie(serie_id : any) {
     let observer$ = this.apiService.eraseFavSerie(serie_id);
     observer$.pipe().subscribe({
