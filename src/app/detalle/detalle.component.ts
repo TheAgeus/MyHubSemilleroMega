@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../api-service/api.service';
-import { finalize, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { LoadingService } from '../loading-service/loading.service';
-
 
 @Component({
   selector: 'app-detalle',
@@ -15,36 +13,28 @@ import { LoadingService } from '../loading-service/loading.service';
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
-
 export class DetalleComponent {
 
-  // For knowing what movie im gonna show, for filtering
   movieId: string = "";
-
   element: any;
-  
-  type:string = "";
-
+  chapters: any[] = []; // Array to store chapters
+  type: string = "";
   loading: boolean = true;
-
   error: string = '';
-  // api service
-  apiService = inject(ApiService);
 
+  apiService = inject(ApiService);
   loadingService = inject(LoadingService);
 
   constructor(private route: ActivatedRoute) { }
 
-  // For filter on init
-  ngOnInit(){
+  ngOnInit() {
     this.route.params.subscribe(params => {
-      this.type = params['type']
-      this.loadData(params['type'], +params['id'])
-    })
+      this.type = params['type'];
+      this.loadData(params['type'], +params['id']);
+    });
   }
-  
 
-  loadData(type:string, id:number) : void {
+  loadData(type: string, id: number): void {
     this.loadingService.show();
 
     let dataObservable$;
@@ -53,6 +43,7 @@ export class DetalleComponent {
       dataObservable$ = this.apiService.getMovieById(id);
     } else if (type === 'Series') {
       dataObservable$ = this.apiService.getSerieById(id);
+      this.loadChapters(id); // Load chapters if it's a series
     } else {
       console.error('Tipo de datos no válido');
       this.loadingService.hide();
@@ -60,10 +51,9 @@ export class DetalleComponent {
     }
 
     dataObservable$.pipe(
-      finalize(() => this.loadingService.hide()) // Ocultar el modal de carga después de que se carguen los datos
+      finalize(() => this.loadingService.hide())
     ).subscribe({
       next: (data) => {
-        console.log("response", data)
         this.element = data;
       },
       error: (err) => {
@@ -72,15 +62,28 @@ export class DetalleComponent {
     });
   }
 
-  // this is only for learning end
-  getTitle() :string{
+  loadChapters(serieId: number): void {
+    this.apiService.getChaptersBySerieId(serieId)
+      .pipe(finalize(() => this.loadingService.hide()))
+      .subscribe({
+        next: (chapters) => {
+          this.chapters = chapters;
+        },
+        error: (err) => {
+          console.error('Error fetching chapters', err);
+        }
+      });
+  }
+
+  getTitle(): string {
     return this.element['name_m'] ?? this.element['name_s'] ?? 'Default Name';
   }
-  getCategory() :string{
+
+  getCategory(): string {
     return this.element['category_m'] ?? this.element['category_s'] ?? 'Default category';
   }
-  getDesc() :string{
+
+  getDesc(): string {
     return this.element['description_m'] ?? this.element['description_s'] ?? 'Default description';
   }
- 
 }

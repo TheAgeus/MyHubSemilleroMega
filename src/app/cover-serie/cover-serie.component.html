@@ -10,6 +10,10 @@
           <a class="btn" [routerLink]="['/Dashboard/Watch/Series', serie.id??serie['serie_id']]">Ver</a>
           <a *ngIf="!isOnFavs" (click)="addFavSerie(serie.id??serie['serie_id'])" class="btn">Agregar a favoritos</a>
           <a *ngIf="isOnFavs" (click)="eraseFavSerie(serie.id??serie['serie_id'])" class="btn">Borrar de favoritos</a>
-      </div>
+
+          <a *ngIf="!isOnWatch" (click)="addWatchSerie(serie.id??serie['serie_id'])" class="btn">Agregar a viendo</a>
+          <a *ngIf="isOnWatch" (click)="eraseWatchSerie(serie.id??serie['serie_id'])" class="btn">Borrar de viendo</a>
+      
+        </div>
   </div>
 </div>

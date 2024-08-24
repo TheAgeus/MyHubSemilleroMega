@@ -19,7 +19,8 @@ export const routes: Routes = [
             { path: 'List/:type/:category', component:MediaListComponent },
             { path: 'Detail/:type/:id', component:DetalleComponent },
             { path: 'Watch/:type/:id', component:VerComponent },
-            { path: 'List_fav/:fav', component:MediaListComponent }
+            { path: 'List_fav/:Favorities', component:MediaListComponent },
+            { path: 'List_watch/:Viendo', component:MediaListComponent }
         ],
         canActivate: [authGuard]
     },

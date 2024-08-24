@@ -1,19 +1,32 @@
 <div class="coverWrapper">
 
     <div class="movieImg">
-        <img src="{{ element['img_url'] }}" alt=" {{getTitle()}} ">
+        <img src="{{ element['img_url'] }}" alt="{{ getTitle() }}">
     </div>
     
     <div class="movieTitle">
-        {{getTitle()}}
+        {{ getTitle() }}
     </div>
     
     <div class="movieCategory">
-        {{getCategory()}}
+        {{ getCategory() }}
     </div>
     
     <div class="movieDesc">
-        {{getDesc()}}
+        {{ getDesc() }}
     </div>
-
-</div>
+  
+    <!-- Display chapters if the type is 'Serie' -->
+    <div *ngIf="type === 'Series'" class="charapteres">
+      <h3>Capítulos:</h3>
+      <ul>
+        <li *ngFor="let chapter of chapters" class="charapter">
+          <strong>Temporada:</strong> {{ chapter.season_number_c }}<br>
+          <strong>Título:</strong> {{ chapter.title_c }}<br>
+          <strong>Descripción:</strong> {{ chapter.description_c }}
+        </li>
+      </ul>
+    </div>
+  
+  </div>
+  

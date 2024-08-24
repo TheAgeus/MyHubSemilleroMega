@@ -11,7 +11,7 @@ describe('CoverComponent', () => {
   let apiService: jasmine.SpyObj<ApiService>;
 
   beforeEach(async () => {
-    const apiServiceSpy = jasmine.createSpyObj('ApiService', ['addFavMovie']);
+    const apiServiceSpy = jasmine.createSpyObj('ApiService', ['addFavMovie', 'addWatchMovie']);
 
     await TestBed.configureTestingModule({
       imports: [CommonModule, RouterTestingModule],
@@ -46,4 +46,25 @@ describe('CoverComponent', () => {
     expect(apiService.addFavMovie).toHaveBeenCalledWith(1); // Check if the API service method was called with the correct argument
     expect(component.isOnFavs).toBeFalse(); // Verify that the isOnFavs property remains unchanged
   });
+
+  it('should toggle isOnFavs to true when addFavMovie is called and successful', () => {
+    apiService.addFavMovie.and.returnValue(of({ message: 'favorito agregado' }));
+    component.isOnFavs = false; // Initial state
+
+    component.addFavMovie(1); // Call the method with a test movie ID
+
+    expect(apiService.addFavMovie).toHaveBeenCalledWith(1); // Check if the API service method was called with the correct argument
+    expect(component.isOnFavs).toBeTrue(); // Verify that the isOnFavs property was toggled to true
+  });
+
+  it('should toggle isOnWatch to true when addWatchMovie is called and successful', () => {
+    apiService.addWatchMovie.and.returnValue(of({ message: 'Viendo película agregado' }));
+    component.isOnWatch = false; // Initial state
+
+    component.addWatchMovie(1); // Call the method with a test movie ID
+
+    expect(apiService.addWatchMovie).toHaveBeenCalledWith(1); // Check if the API service method was called with the correct argument
+    expect(component.isOnWatch).toBeTrue(); // Verify that the isOnFavs property was toggled to true
+  });
+
 });

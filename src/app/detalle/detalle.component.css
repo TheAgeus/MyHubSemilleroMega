@@ -31,3 +31,19 @@
     line-height: 2rem;
     padding: 5%;
 }
+
+.charapteres {
+    margin:5%;
+}
+.charapteres h3 {
+    padding-block: 1rem;
+}
+.charapter {
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+.charapter strong {
+    padding-bottom: 1rem;
+}

@@ -29,6 +29,10 @@ export class NavComponent {
     this.SetInitialSerieCategories()
   }
 
+  ngOnInit(){
+    
+  }
+
   movieCategories: string[] = [
     'Fantasía', 
     'Terror',
@@ -39,6 +43,7 @@ export class NavComponent {
   
   otherMenuElements: Option[] = [
     { title:'Favoritos', route:'/Dashboard/List_fav/Favorites' },
+    { title:'Viendo', route:'/Dashboard/List_watch/Viendo' },
     { title:'Configuracion', route: '/Dashboard/Config' },
   ]
   
@@ -58,7 +63,7 @@ export class NavComponent {
   SetInitialMovieCategories() {
     this.apiService.getMovieCategories().subscribe(
       (categories: any[]) => {
-        this.movieCategories = categories.map(category => category.category_m);
+        this.movieCategories = categories.map(category => category);
       },
       (error) => {
         console.error('Error fetching movie categories', error);
@@ -69,7 +74,7 @@ export class NavComponent {
   SetInitialSerieCategories() {
     this.apiService.getSerieCategories().subscribe(
       (categories: any[]) => {
-        this.serieCategories = categories.map(category => category.category_s);
+        this.serieCategories = categories.map(category => category);
       },
       (error) => {
         console.error('Error fetching serie categories', error);

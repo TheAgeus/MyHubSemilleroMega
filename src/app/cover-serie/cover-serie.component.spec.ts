@@ -12,7 +12,7 @@ describe('CoverSerieComponent', () => {
   let apiService: jasmine.SpyObj<ApiService>;
 
   beforeEach(async () => {
-    const apiServiceSpy = jasmine.createSpyObj('ApiService', ['addFavSerie', 'eraseFavSerie']);
+    const apiServiceSpy = jasmine.createSpyObj('ApiService', ['addFavSerie', 'eraseFavSerie', 'addWatchSerie']);
 
     await TestBed.configureTestingModule({
       imports: [CommonModule, RouterTestingModule, HttpClientModule],
@@ -40,6 +40,16 @@ describe('CoverSerieComponent', () => {
 
     expect(apiService.addFavSerie).toHaveBeenCalledWith(1);
     expect(component.isOnFavs).toBeTrue();
+  });
+
+  it('should toggle isOnWatch when addWatchSerie is called and successful', () => {
+    apiService.addWatchSerie.and.returnValue(of({ message: 'Viendo serie agregado' }));
+    component.isOnWatch = false;
+
+    component.addWatchSerie(1);
+
+    expect(apiService.addWatchSerie).toHaveBeenCalledWith(1);
+    expect(component.isOnWatch).toBeTrue();
   });
 
   it('should handle error when addFavSerie fails', () => {

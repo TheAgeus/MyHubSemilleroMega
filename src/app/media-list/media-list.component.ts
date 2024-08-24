@@ -16,6 +16,7 @@ interface Movie {
   title: string;
   shortDesc: string;
   fav: boolean;
+  watch: boolean;
 }
 
 @Component({
@@ -33,6 +34,9 @@ export class MediaListComponent {
 
   // is on favs
   isOnFavs:boolean = false;
+
+  // is on watch
+  isOnWatch:boolean = false;
 
   // keep track of category
   category:string = ""
@@ -59,13 +63,19 @@ export class MediaListComponent {
     // get params from route, to know witch movies Im gonna show
     this.route.params.subscribe(params => {
       console.log(params)
+      console.log("ARRIBA ESTAN LOS PARAMS")
       this.category = params['category'];
       this.type = params['type'];
        
-      if (params['fav']) {
+      if (params['Favorities']) {
         this.isOnFavs = true;
-        console.log("favs");
+        console.log("ESTAS EN FAVORITOSA");
         this.loadFav();
+      }
+      else if (params['Viendo']) {
+        this.isOnWatch = true;
+        console.log("ESTAS EN VIENDO");
+        this.loadWatch();
       }
       else if (this.category == undefined && this.type == undefined) {
         console.log("no categoria no tipo")
@@ -85,6 +95,29 @@ export class MediaListComponent {
 
     let dataObservable1$ = this.apiService.getFavoriteMovies();
     let dataObservable2$ = this.apiService.getFavoriteSeries();
+
+    forkJoin([dataObservable1$, dataObservable2$])
+      .pipe(
+        finalize(() => this.loadingService.hide()) // Hide the loading modal after data is loaded
+      )
+      .subscribe({
+        next: ([movies, series]) => {
+          console.log("PELICULAS Y SERIES FAVORITAS")
+          console.log(movies, series)
+          this.movies = movies;
+          this.series = series;
+        },
+        error: (err) => {
+          console.error('Error fetching data', err);
+        }
+      });
+  }
+
+  loadWatch() {
+    this.loadingService.show();
+
+    let dataObservable1$ = this.apiService.getWatchingMovies();
+    let dataObservable2$ = this.apiService.getWatchingSeries();
 
     forkJoin([dataObservable1$, dataObservable2$])
       .pipe(
@@ -148,6 +181,7 @@ export class MediaListComponent {
       finalize(() => this.loadingService.hide()) // Ocultar el modal de carga después de que se carguen los datos
     ).subscribe({
       next: ({ movies, series }) => {
+        console.log(movies)
         this.movies = movies;
         this.series = series;
       },

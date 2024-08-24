@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class CoverSerieComponent {
   isOnFavs : boolean = false;
+  isOnWatch : boolean = false;
   apiService = inject(ApiService);
   @Input() serie: any = {}; 
 
@@ -28,6 +29,14 @@ export class CoverSerieComponent {
         this.isOnFavs = false;
       } else {
         this.isOnFavs = true;
+      }
+    }
+
+    if (this.serie) {
+      if (this.serie['es_viendo'] === "No") {
+        this.isOnWatch = false;
+      } else {
+        this.isOnWatch = true;
       }
     }
   }
@@ -46,6 +55,19 @@ export class CoverSerieComponent {
     })
   }
 
+  addWatchSerie(serie_id : any) {
+    let observer$ = this.apiService.addWatchSerie(serie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isOnWatch = !this.isOnWatch
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   // toggles is on fav of serie and add or erase record in database
   eraseFavSerie(serie_id : any) {
     let observer$ = this.apiService.eraseFavSerie(serie_id);
@@ -53,6 +75,19 @@ export class CoverSerieComponent {
       next: (data) => {
         console.log(data);
         this.isOnFavs = !this.isOnFavs
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  eraseWatchSerie(serie_id : any) {
+    let observer$ = this.apiService.eraseWatchSerie(serie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isOnWatch = !this.isOnWatch
       },
       error: (err) => {
         console.log(err);

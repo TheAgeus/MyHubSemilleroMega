@@ -10,6 +10,8 @@
           <a class="btn" [routerLink]="['/Dashboard/Watch/Peliculas', movie.id??movie['movie_id']]">Ver</a>
           <a *ngIf="!isOnFavs" (click)="addFavMovie(movie.id??movie['movie_id'])" class="btn">Agregar a favoritos</a>
           <a *ngIf="isOnFavs" (click)="eraseFavMovie(movie.id??movie['movie_id'])" class="btn">Borrar de favoritos</a>
+          <a *ngIf="!isOnWatch" (click)="addWatchMovie(movie.id??movie['movie_id'])" class="btn">Agregar a viendo</a>
+          <a *ngIf="isOnWatch" (click)="eraseWatchMovie(movie.id??movie['movie_id'])" class="btn">Borrar de viendo</a>
       </div>
   </div>
 </div>

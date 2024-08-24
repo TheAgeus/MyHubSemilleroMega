@@ -13,6 +13,7 @@ import { ApiService } from '../api-service/api.service';
 })
 export class CoverComponent {
   isOnFavs : boolean = false;
+  isOnWatch : boolean = false;
   apiService = inject(ApiService);
   @Input() movie: any = {}; 
 
@@ -26,6 +27,14 @@ export class CoverComponent {
         this.isOnFavs = false;
       } else {
         this.isOnFavs = true;
+      }
+    }
+
+    if (this.movie) {
+      if (this.movie['es_viendo'] === "No") {
+        this.isOnWatch = false;
+      } else {
+        this.isOnWatch = true;
       }
     }
   }
@@ -44,6 +53,19 @@ export class CoverComponent {
     })
   }
 
+  addWatchMovie(movie_id : any) {
+    let observer$ = this.apiService.addWatchMovie(movie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isOnWatch = !this.isOnWatch
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   // toggles is on fav of movie and add or erase record in database
   eraseFavMovie(movie_id : any) {
     let observer$ = this.apiService.eraseFavMovie(movie_id);
@@ -51,6 +73,19 @@ export class CoverComponent {
       next: (data) => {
         console.log(data);
         this.isOnFavs = !this.isOnFavs
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  eraseWatchMovie(movie_id : any) {
+    let observer$ = this.apiService.eraseWatchMovie(movie_id);
+    observer$.pipe().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.isOnWatch = !this.isOnWatch
       },
       error: (err) => {
         console.log(err);
