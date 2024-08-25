@@ -1,0 +1,9 @@
+version: '1'
+services:
+  web:
+    image: front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80"

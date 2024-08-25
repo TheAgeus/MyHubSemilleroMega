@@ -1,4 +1,4 @@
-# SPRINT 4 - HUB DE ENTRETENIMIENTO - MY HUB - Consumo de Base de datos
+# SPRINT 6 - HUB DE ENTRETENIMIENTO - MY HUB - Kubernetes
 
 * Nombre del proyecto - MYHUB
 * Nombre del desarrollador: Agustín Aguilar Eusebio
@@ -6,114 +6,115 @@
 
 
 ### Descripción
-Tenemos una aplicación funcional en ángular, con diseño. Ya implementamos funcionalidad asíncrona y testing, ahora para que se asemeje más a la realidad, vamos a consumir base de datos.
+Todos conocemos el ambiente de desarrollo, donde, desde que comenzamos a programar, desarrollamos aplicaciones en nuestra propia máquina. Sin embargo, este enfoque tiene sus limitaciones. Por ejemplo, la capacidad de carga que puede soportar es limitada, las configuraciones pueden no ser adecuadas para otros entornos y, sobre todo, la escalabilidad es restringida. A medida que nuestra aplicación crece, no basta con tener una sola copia en nuestro host local. Si la aplicación se vuelve exitosamente grande, necesitará un soporte adecuado para manejar la carga de trabajo.
 
-Las bases de datos son una herramienta crucial en el mundo de las aplicaciones y la información. Casi toda aplicación si no es que todas, ocupan bases de datos para mantener concordancia con la información de los usuarios.
+Para abordar estos desafíos, es fundamental aprender a utilizar herramientas como Docker y Kubernetes. Estas tecnologías nos permiten:
 
-En nuestra aplicación aplica lo de dar seguimiento a la información de los usuarios, ya que los usuarios pueden tener películas o series favoritas.
-
-La autentificación es una parte importante de las aplicaciones ya que, no a todo mundo le vamos a facilitar nuestros servicios, ya sea por méritos económicos o de personalización, la autentificación es algo que no debe de faltar en las aplicaciones modernas.
+- Escalabilidad: Aseguran que la aplicación pueda manejar un aumento en la carga de trabajo mediante la creación de múltiples instancias y el balanceo de carga.
+- Consistencia: Garantizan que la configuración de la aplicación sea coherente en diferentes entornos, desde desarrollo hasta producción.
+- Automatización: Facilitan la automatización del despliegue, gestión y orquestación de aplicaciones, reduciendo la intervención manual y los errores.
 
 ### Objetivo
-
-- Implementar una base de datos para que nuestra aplicación funcione en base a esa base de datos y a los datos que esta contiene.
-- Implementación de autentifiación
-- Aplicar seguridad a las rutas
-
+- De la aplicacion que teniamos, generar los archivos que lleven nuestra aplicacion a un ambiente productivo
 
 ### Capturas
-Primera entrada en el dashboard al logearse
-![/capturas/1.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/1.JPG)
+Mis pods que creé en mis deployments
+![Mis pods](capturas/mypods.PNG)
 
-Favoritos
-![/capturas/2.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/2.JPG)
+El pod con el servicio
+![Mis pods con el servicio](capturas/kubernetes-front-pod-and-service.PNG)
 
-Cuando agregas o eliminas un favorito cambia el boton, se actualiza la base de datos y sale un mensaje por consola
-![/capturas/3.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/3.JPG)
+Docker
+![docker](capturas/docker.PNG)
 
-Puedes cerrar sesion y se borra el toquen, entonces ya no puedes entrar, te redirecciona al login. VER VIDEO EN LA CARPETA DE VIDEOS
-![/capturas/4.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/4.JPG)
+Mi front corriendo desde un servicio de kubernetes
+![front en kubernetes](capturas/kubernetes-front-browser.PNG)
 
-Agrege pagina de no found para cualquiera que no sea una ruta registrada.
-![/capturas/5.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/5.JPG)
+![1](capturas/1.PNG)
 
-Ahora el code coverage y tests
-![/capturas/codecoverage.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/codecoverage.JPG)
+![2](capturas/2.PNG)
 
-![/capturas/6.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/6.JPG)
+![3](capturas/3.PNG)
 
-![/capturas/7.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/7.JPG)
-
-![/capturas/8.JPG](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/8.JPG)
-
-Diagrama entidad relacion
-![/capturas/9.png](https://github.com/TheAgeus/MyHubSemilleroMega/blob/sprintFour/capturas/9.png)
-
-
-Las queries las tiengo en el directiorio raiz de este proyecto
-
+![4](capturas/4.PNG)
 
 ### Instrucciones de uso
-PARA LA BASE DE DATOS
-- Instalar servidor sql express es recomendado
-- crear tu base de datos
-- generar las tablas y procedimientos desde mi archivo de queries
+- Tener instalado docker
+- Instalar minikube
+- Cambiar todas las uris de la api por http://localhost:5000 en el proyecto de angular
+- Hacer ng build
+- Desde la ruta raiz, usar `docker-compose up`
+- Cargar la imagen a minikube con `minikube image load front`
+- Crear los pods y servicios del front con `kubectl apply -f yamls/front-dep.yaml` y  `kubectl apply -f yamls/front-service.yaml`
+- Ya desde el servicio se puede ver que funciona
+- Cambiar del proyecto front al back con cd api-aspnet
+- correr dotnet publish -c Release -o out
+- correr dotnet out/MovieHubApi.dll
+- construir imagen
+- Cargar la imagen a minikube con `minikube image load backend`
+- Crear los pods y servicios del back con `kubectl apply -f yamls/front-dep.yaml` y  `kubectl apply -f yamls/front-service.yaml`
+- Correr kubectl apply -f yamls/secret.yaml
 
-PARA EL PROYECTO
-- Clonar el proyecto
-- cd MyHubSemilleroMega
-- git checkout sprintFour
 
-PARA EL FRONT
-- en una terminal en directiorio raiz del proyecto...
-- code .
-- open new terminal
-- npm install
-- ng s
-- ctrl + click in link
-
-PARA EL BACK
-- abrir otra terminal en la ruta raiz del proyecto
-- cd myServer
-- poner un .env siguiendo el ejemplo del .env example
-- node server.js
-
-Para probar los testing:
-- ng test
-- ng test --code-coverage
-
-- registra usuarios no se necesita confirmacion de mail
-- listo, a disfrutar
+### Dependencias o bibliotecas
+- Docker v4.33.1
+- Minikube 
+- dotnet/sdk:8
+- Angular v18
+- Entity fremework 8.0.8
+- AspNetCore.Cors 2.2.0
+- Microsoft.EntityFrameworkCore.SqlServer 8.0.8
+- Microsoft.AspNetCore.Authentication.JwtBearer 8.0.8
+- JWT 10.1.1
+- Node 20.15.0
+- Sql Server 2022
 
 ### Descripción del proceso
+Para empezar tuve que pasar toda la api de node express a c#, además de implementar una que otra cosa diferente tanto en el frontend como en el backend para que funcionara y a parte hacer el test de eso.
 
-La verdad a principios del sprint me sentía muy relajado, pensé que solo sería una implementación sencilla de una base de datos, pero poco a poco se me fueron presentando problema tras problema, y cada vez se me hacía más complejo el asunto. Para empezar, quise pensar en mis entidades, yo quise utilizar solo cuatro, Usuario, Película, Serie y Capítulo.
-
-Me di cuenta que usuario con serie y pelicula tenian relacion muchos a muchos por lo que se me gerenaron otras dos tablas, para llevar a cabo la relacion de los favoritos de un usuario y los que se esta viendo, pero duplique esa tabla para llevar a cabo ese cometido. Tal vez no fue lo mejor porque dupliqué la complejidad del proyecto. Bueno, despues de haber hecho mis tablas, quise hacer unas queries para irme familiarizando con lo ellas. Después quise hacer la api para conectarla con mi base de datos. Hasta eso todo bien, pero en ese punto recordé que tenía que ser con autentificación, entonces tuve que buscar cómo hacerlo y para encontrarlo y entenderlo me tardé un tiempo.
-
-Para proteger las rutas y eso, también me tomó tiempo comprenderlo, y modificar mis rutas de la api para que funcionaran con auth. 
-
-Después tuve que ver como conectar la aplicacion de angular con la api. Es lo que más me costó trabajo porque tuve que borrar casi todo lo que ya tenía y adaptarlo para que consumiera desde una api y ademas bucar el como conectar el front con la api. 
-
-Despues de batallar mucho, lo logre, desde el front ya hacia peticiones http y me regresaba resultados, despues de unas correcciones y seguir adaptando, ya se logró.
-
-Ya estaba listo para entregar y olvido que tambien había que hacer test de esto, y me ayude mucho de chatgpt porque hay muchas cosas de los test que no entiendo muy bien como funciona y menos cuando hay tanta funcion asíncrona y mucho tema. Pero despues de leer tantos test ya me voy dando una idea.
-
+Después intenté hacer una imagen por frontend y por backend, sí pude después de un rato con el frontend, pero no con el backend, aunque si creaba los pods y los servicios, a la hora de probar me salía una página de error.
 
 
 ### Problemas conocidos
+- No supe como hacer el deploy de la api con kubernetes, no supe como hacer el servicio para que funcionara con la base de datos porque supongo que debía desplegar una base de datos, y aunque la despliego no encuentro la correcta configuración para que tanto backend, base de datos y frontend funciones en conjunto desde kubernetes
 
-- el como hacer peticiones http se me dificulto mucho, el tema de seguridad tambien
-- el tener que cambiar y adaptar el código que ya tenía se me hizo pesado también además de hacer los test
-- lo de la programacion asíncrona también y el local storage me volvió a pasar, además del cors, aunque eso estuvo más facil de solucionar
 
+### Codecoverage
+![codecoverage](capturas/codecoverage.JPG)
+
+### Test report
+![test part 1](capturas/test1.PNG)
+![test part 2](capturas/test2.PNG)
+
+### Diagrama entidad relacion
+![entidad relaion](capturas/diagrama.png)
+
+
+### Posibles mejoras futuras
+- Cerrar el menu cuando seleciono una categoria
+- Consumir un servicio donde se descarge por streaming el video de la pelicula o capítulo
+- Tener mas imagenes
+- Seccionar mejor los listados de las peliculas
+- Usar pafinación
+- Más elementos animados y asíncronos
+
+### Documentacion Api swagger
+Swagger part1
+![swagger part 1](capturas/swagger1.PNG)
+
+Swagger part2
+![swagger part 2](capturas/swagger2.PNG)
+
+### Archivos de configuracion
+Estan en la carpeta de yamls y api-aspnet/yamls
 
 ### Retrospectiva
 ### ¿Qué hice bien?
-Sigo creyendo que mi interfaz de usuario es muy bonita, el usar tokens para la autorizacion y basarme en el para no tener que tomar el id del usuario, aunque creo que eso ya se hace en todos lados desde el token.
+Configurar e instalar las cosas para que kubernetes funcionara
 
 ### ¿Qué no hice bien?
-No planificar bien las consultas antes de implementar la api, pensar en todas las posibles consultas que se me iban a presentar que realizara
+No encontrar la correcta configuracion para desplegar la base de datos con la api en modo de producción
 
 ### ¿Qué podría mejorar?
-definitivamente el diseño de la api y también, ahora que se usar un poco más ángular, planificar mejor la aplicacion, los servicios, los guards, las rutas.
+Aprender a configurar el backend con base de datos para kubernetes, separar los proyectos, no confiarme tanto de que es fácil hacer un deploy.
+Me confié de que era sencillo desplegar mi aplicación y que no habría mucho que hacer.

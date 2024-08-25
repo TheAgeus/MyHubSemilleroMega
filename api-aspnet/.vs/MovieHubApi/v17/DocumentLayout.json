@@ -1,0 +1,347 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\controllers\\seriecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:controllers\\seriecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:controllers\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\users_have_favorite_movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\users_have_favorite_movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\serie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\serie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817191604_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817190852_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:dtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\users_are_watching_series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\users_are_watching_series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\users_are_watching_movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\users_are_watching_movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\models\\users_has_favorite_series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:models\\users_has_favorite_series.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|c:\\users\\ageus\\desktop\\dev\\angular\\myhubsemilleromega\\api-aspnet\\migrations\\20240817191758_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0ECB3F7-FA84-4D3D-9286-BAFE2559AC0B}|MovieHubApi.csproj|solutionrelative:migrations\\20240817191758_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 254,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAkwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T17:28:40.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SerieController.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\SerieController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SerieController.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\SerieController.cs",
+              "RelativeToolTip": "Controllers\\SerieController.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAuwEoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:26:37.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MovieController.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\MovieController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MovieController.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\MovieController.cs",
+              "RelativeToolTip": "Controllers\\MovieController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T18:47:24.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-17T14:27:24.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAAL8CAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:56:23.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Users_have_favorite_movies.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_have_favorite_movies.cs",
+              "RelativeDocumentMoniker": "Models\\Users_have_favorite_movies.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_have_favorite_movies.cs",
+              "RelativeToolTip": "Models\\Users_have_favorite_movies.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T14:59:34.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\DTOs\\UserDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UserDto.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\DTOs\\UserDto.cs",
+              "RelativeToolTip": "DTOs\\UserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T17:29:45.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAEIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T14:26:55.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20240817190852_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817190852_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\VisualBasic\\MovieHubApi\\Migrations\\20240817190852_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817190852_InitialCreate.cs",
+              "RelativeToolTip": "..\\..\\..\\VisualBasic\\MovieHubApi\\Migrations\\20240817190852_InitialCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:08:52.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20240817191604_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817191604_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\VisualBasic\\MovieHubApi\\Migrations\\20240817191604_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\VisualBasic\\MovieHubApi\\Migrations\\20240817191604_InitialCreate.cs",
+              "RelativeToolTip": "..\\..\\..\\VisualBasic\\MovieHubApi\\Migrations\\20240817191604_InitialCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:16:05.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20240817191758_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Migrations\\20240817191758_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240817191758_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Migrations\\20240817191758_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20240817191758_InitialCreate.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:17:58.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Movie.cs",
+              "RelativeDocumentMoniker": "Models\\Movie.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Movie.cs",
+              "RelativeToolTip": "Models\\Movie.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAQwA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T14:56:57.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Serie.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Serie.cs",
+              "RelativeDocumentMoniker": "Models\\Serie.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Serie.cs",
+              "RelativeToolTip": "Models\\Serie.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAQwAsAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T15:42:56.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwA8AAAB3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T14:52:26.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "Context\\AppDbContext.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAYwDAAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T14:50:05.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserLoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\DTOs\\UserLoginDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UserLoginDto.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\DTOs\\UserLoginDto.cs",
+              "RelativeToolTip": "DTOs\\UserLoginDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T17:37:38.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Users_are_watching_movies.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_are_watching_movies.cs",
+              "RelativeDocumentMoniker": "Models\\Users_are_watching_movies.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_are_watching_movies.cs",
+              "RelativeToolTip": "Models\\Users_are_watching_movies.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T15:41:45.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Users_are_watching_series.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_are_watching_series.cs",
+              "RelativeDocumentMoniker": "Models\\Users_are_watching_series.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_are_watching_series.cs",
+              "RelativeToolTip": "Models\\Users_are_watching_series.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T15:45:10.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Users_has_favorite_series.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_has_favorite_series.cs",
+              "RelativeDocumentMoniker": "Models\\Users_has_favorite_series.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Users_has_favorite_series.cs",
+              "RelativeToolTip": "Models\\Users_has_favorite_series.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T15:44:35.336Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 182,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Chapter.cs",
+              "DocumentMoniker": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Chapter.cs",
+              "RelativeDocumentMoniker": "Models\\Chapter.cs",
+              "ToolTip": "C:\\Users\\Ageus\\Desktop\\Dev\\Angular\\MyHubSemilleroMega\\api-aspnet\\Models\\Chapter.cs",
+              "RelativeToolTip": "Models\\Chapter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T15:50:02.105Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: backend:latest  # Specify the version/tag of your image
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Production"
+        - name: DATABASE_SERVER
+          value: sqlserver
+        - name: DATABASE_PORT
+          value: "1433"
+        - name: DATABASE_USER
+          value: sa
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: DATABASE_PASSWORD
+        - name: DATABASE_NAME
+          value: MovieHub
+        - name: JWT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: JWT_KEY
