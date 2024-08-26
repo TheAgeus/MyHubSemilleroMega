@@ -1,4 +1,4 @@
-# SPRINT 6 - HUB DE ENTRETENIMIENTO - MY HUB - Kubernetes
+# SPRINT 6 - HUB DE ENTRETENIMIENTO - MY HUB - Kubernetes c#
 
 * Nombre del proyecto - MYHUB
 * Nombre del desarrollador: Agustín Aguilar Eusebio
@@ -30,13 +30,13 @@ Docker
 Mi front corriendo desde un servicio de kubernetes
 ![front en kubernetes](capturas/kubernetes-front-browser.PNG)
 
-![1](capturas/1.PNG)
+![1](capturas/1.JPG)
 
-![2](capturas/2.PNG)
+![2](capturas/2.JPG)
 
-![3](capturas/3.PNG)
+![3](capturas/3.JPG)
 
-![4](capturas/4.PNG)
+![4](capturas/4.JPG)
 
 ### Instrucciones de uso
 - Tener instalado docker
