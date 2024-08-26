@@ -37,6 +37,13 @@ Mi front corriendo desde un servicio de kubernetes
 ![3](capturas/3.JPG)
 
 ![4](capturas/4.JPG)
+![4](capturas/5.JPG)
+
+![5](capturas/cap1.PNG)
+![5](capturas/cap2.PNG)
+![5](capturas/cap3.PNG)
+![5](capturas/cap4.PNG)
+
 
 ### Instrucciones de uso
 - Tener instalado docker
